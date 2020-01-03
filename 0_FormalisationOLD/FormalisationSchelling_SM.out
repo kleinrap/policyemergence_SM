@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{The agents}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Active agents}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Passive agents}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{The belief system}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{The issue tree}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{The policy tree}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Problem and policy focused agents}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{The policy network}{}% 8
+\BOOKMARK [1][-]{section.4}{The model cycle}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Agenda selection}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Policy package selection and implementation}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{External events}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Policy learning}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{General actions}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Targeted actions}{section.5}% 15

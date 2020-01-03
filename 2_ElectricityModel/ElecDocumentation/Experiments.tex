@@ -1,0 +1,250 @@
+Before the simulation of the model, there is a need to plan what we want to simulate. This is based on the research question that we would like to answer. We first create a number of hypotheses that we want to prove. We then build the scenarios to test these hypotheses. These scenarios should detail the required initial parameters.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The model hypotheses}
+\label{sec:hypotheses}
+
+Several hypotheses are made for testing the electricity model. They are given as follows:
+
+\begin{itemize}
+\item H1: An increasingly environmentally conscious electorate will lead to more indigenous renewable investments regardless of the speed electrification of the energy sector.
+\end{itemize}
+
+
+\emph{The hypotheses should relate to the impact of actors on the unfolding of the electricity model in a range of growth scenarios.}
+
+The current hypothesis would require a variation in the electorate rate of change (scenarios for the electorate), along with a variation in the demand growth scenarios.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of the section
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The scenarios}
+\label{sec:scenarios}
+
+Scenarios are built to attempt to prove the hypothesis that has been outlined before. The hypothesis spans a number of parameters in both models that will need to be changed. This includes a variation in the electorate's goal evolution and a variation of the demand growth scenarios.
+
+%%%%%%%%%%%%
+\subsection{Electorate goal changes}
+
+There are three main options when looking at the changes of the preferred states of the electorates over time:
+
+\begin{itemize}
+\item Option 1: We can have some sort of benchmark test where both electorates start with the same preferred states.
+\item Option 2: We make three scenarios with one variation over time of the preferred states. Scenario 1 has the preferred states of all electorates change, scenario 2 would only see the preferred states of electorate 1 change and scenario 3 would see the same but for electorate 2.
+\item Option 3: The scenarios are based on the electorates' preferred states changing at different rates. This might include one electorate (economy) changing at a slower pace that the second electorate (environment)
+\end{itemize}
+
+I think we can assume that the environmental consciousness of the electorate is only going to grow over time or at least not decrease. Therefore we will select option 3 with three scenarios. These are provided below:
+
+\begin{itemize}
+\item S1: Affiliation 1 and 2 preferred states for environment grow quickly at same rate (see \autoref{tab:preferredStates_Elec_S1}).
+\item S2: Affiliation 1 preferred states for environment grows slowly while it grows fast for affiliation 2 (see \autoref{tab:preferredStates_Elec_S2}).
+\item S3: Affiliation 1 preferred states for environment stays constant while it grows fast for affiliation 2 (see \autoref{tab:preferredStates_Elec_S3}).
+\end{itemize}
+
+The changes in the preferred states happen twice within the model at regular intervals.
+
+As a reminder, the issues are: 
+
+\begin{itemize}
+\item S1: renewable energy production on range [0, 1].
+\item S2: electricity prices on range [200, 0]. % init 40
+\item S3: renewable energy investment level on range [0, 1].
+\item S4: domestic level emissions on range [0, $\sim$20m].
+\item S5: imported emissions on range [0, $\sim$9m]. % init max 60k
+\item PC1: economy [0, 1]. % init 0.57 PC1 = 0.75 * S2 + 0.25 * S3
+\item PC2: environment [0, 1]. % init 0.392/0.393 PC2 = 0.25 * S1 + 0.25 * S3 + 0.25 * S4 + 0.25 * S5
+\end{itemize}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|} 
+\hline
+		& PC1		& PC2	&  S1	& S2			& S3		& S4			& S5			\\ 
+		& Econ.		& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.	\\ \hline
+\multirow{2}{*}{Policy makers}
+		& 			&		& 0.60	& 50 CHF/MWh	& 0.70	& 4 m [?]		& 60k [?]		\\ \cline{2-8}
+		& 0.70		& 0.53	& 0.60	& 0.75		& 0.70	& 0.80		& 0.33		\\ \hline
+\multirow{2}{*}{Electorate}
+		&			&		&100\%	& 75 CHF/	MWh	& 100\%	& 0.00 [?]		& 5000.00	 [?]	\\ \cline{2-8}
+		& 0.73		& 0.89	&1.00	& 0.63		& 1.00	& 1.00		& 0.94	 	\\ \hline
+\end{tabular}
+\end{center}
+\caption{New table - Starting preferred states for the policy makers and preferred states for the electorate agents in 2040 on a the interval [0,1].}
+\label{tab:}
+\end{table}
+
+% aff1. economy
+% aff2. environment
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%			& Aff. 	& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.80	& 0.66	& 0.80	& 0.75 (50)	& 0.80	& 0.90 (2m)	& 0.55 (40k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			&1		& 0.82	& 0.81	& 0.95	& 0.75 (50)	& 0.90	& 0.95 (1m)	& 0.77 (20k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97 	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S1.}
+%\label{tab:preferredStates_Elec_S1}
+%\end{table}
+
+How are the initial values selected for the different electorate affiliations? When the party is neutral on a certain issue, we assume that they favour the status quo. Therefore, the preferred states for the electorates will be those of the initial states in the simulation. When the party is not neutral, a guestimation is made based on where we would expect each affiliation would want to be in the future. The policy core values are calculated based on the preferences on the secondary issues.
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%		
+%			& Aff. 	& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.79	& 0.61	& 0.70	& 0.75 (50)	& 0.75	& 0.85 (3m)	& 0.44 (50k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			&1		& 0.81	& 0.70	& 0.80	& 0.75 (50)	& 0.80	& 0.90 (2m)	& 0.61 (35k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S2.}
+%\label{tab:preferredStates_Elec_S2}
+%\end{table}
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%		
+%			& Aff.	& PC1 	& PC2	& S1		& S2		& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price	& REI	& Dom. em.	& Imp. em.	\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S3.}
+%\label{tab:preferredStates_Elec_S3}
+%\end{table}
+
+Remark: One of the weakness of this approach is the need for goals for all of the beliefs. In a lot of cases, for the electricity model, agents do not necessarily have a goal when they are not interested in the topic. They are simply indifferent. This is something that should be discussed in the limitations of the model.
+
+Remark 2: There is an irony in the way the economy KPI is calculated. Because it is only base don electricity prices and the investments, if both actors want the same prices, then the affiliation for the environment will want more economy than the economy affiliation. This is a direct consequence of the system boundaries.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of the section
+
+%%%%%%%%%%%%
+\subsection{Growth demand}
+
+The electricity demand growth needs to be varied to confirm the hypothesis. The basis behind such changes are to account for increasing efficiencies in the electricity sector while at the same time sustaining the electrification of the energy sector, including heating and mobility. Four different levels of demand growths are considered: 0\%, 1\%, 2\% and 3\%. 
+
+%%%%%%%%%%%% end of the subsection
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The initialisation of the model}
+\label{sec:initialisation}
+
+%%%%%%%%%%%%
+\subsection{The policy process model}
+
+The affiliations, the actor distribution and their preferred state need to be initialised for the policy process model. These elements are not part of the scenarios and are therefore constant across all simulations.
+
+\paragraph{The affiliations}
+
+There are two affiliations that need to be considered for the electricity sector in the policy process model. These follow the findings of \cite{markard2016socio}. One of the affiliation is focused on the economy (affiliation 1) while the other on the environment (affiliation 2). Their differences in beliefs outlined in \cite{markard2016socio} will be reflected in their preferred states. Note that no surveys were performed for this study as this is an initial study and it is considered that the study made in \cite{markard2016socio} is still sufficiently recent to apply to the model at hand here.
+
+
+\paragraph{The actor distribution}
+
+It is assumed in this approach that the actor distribution will not change over time. Only the beliefs of the electorate and the actors change. This is an assumption that could have an impact on the results obtained. This is translated in 3 policy makers and 4 policy entrepreneurs (Affiliation 1: 2 policy maker and 2 policy entrepreneurs; affiliation 2: 1 policy makers and 2 policy entrepreneurs).
+
+Because of computational efficiency issues, not all actors that were found to have a role to play in \cite{markard2016socio} can be considered. Similarly, not all of the Swiss parliament can be reflected within this study. All actors are therefore aggregated down to a size of roughly ten actors in total. 
+
+\paragraph{The actor preferred states} The actor preferred states are given in \autoref{tab:preferredStates}. They are identical to the preferred states of their respective electorate at that point in time. Their causal beliefs are given in \autoref{tab:causalBeliefs}. The causal beliefs are equivalent to the ones used within the model. This assumes that the agents have a perfect understanding of the inner workings of the system. It is not in the scope of the present research to understand the effect of an imperfect understanding of the system by the actors and therefore, it is not studied here. This is also means that there are no negative influences on the 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+\hline
+		
+		& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.	\\ \hline \hline
+Aff. 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \hline
+Aff. 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1].}
+\label{tab:preferredStates}
+\end{table}
+
+%\item S1: renewable energy production
+%\item S2: electricity prices
+%\item S3: renewable energy investment level
+%\item S4: domestic level emissions
+%\item S5: imported emissions
+%\item PC1: economy [0, 1]. % init 0.57 PC1 = 0.75 * S2 + 0.25 * S3
+%\item PC2: environment [0, 1]. % init 0.392/0.393 PC2 = 0.25 * S1 + 0.25 * S3 + 0.25 * S4 + 0.25 * S5
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |c|c|c|}
+ \hline
+ 	& PC1	& PC2		\\ \hline \hline
+-S1 	& 0.00	& 0.25		\\ \hline
+-S2 	& 0.75	& 0.00		\\ \hline
+-S3 	& 0.25	& 0.25		\\ \hline
+-S4 	& 0.00	& 0.25		\\ \hline
+-S5 	& 0.00	& 0.25		\\ 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Causal beliefs for the agents of both affiliations. These causal relations can be read as: the impact of S1 on PC2 is 0.25. They are all given on the interval [-1,1].}
+\label{tab:causalBeliefs}
+\end{table}
+
+The causal beliefs between deep core and policy core beliefs are not present in \autoref{tab:causalBeliefs} as no deep core belief is considered for this specific case.
+
+
+\paragraph{The hybrid model duration}
+
+The model simulation last 27 years in total with a warmup time of three years. This considers a start of year of 2016, therefore the model runs until 2043. The interval between policy process is 3 years with the policy process model being called 9 times. The scenarios are therefore triggered at time of 9 years ($t_1 = 2025$) and 18 years ($t_2 = 2034$). The evaluation interval, that is the amount of time that is used to test the effectiveness of policies is set at 3 years, similar to the interval between which policy processes are called. (At the moment an interval of ten years is also tested to observe potential consequences of such changes).
+
+%%%%%%%%%%%% end of the subsection
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of the section
+
+

@@ -1,0 +1,920 @@
+<?xml version="1.0" standalone="yes"?>
+<Entities>
+  <xs:schema id="Entities" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="Entities" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Demand" msdata:EntityTypeName="Demand" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="DemandID" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="DemandID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="country" type="xs:string" minOccurs="0" />
+                <xs:element name="supply_x0020_link" type="xs:string" minOccurs="0" />
+                <xs:element name="type" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_base" type="xs:double" minOccurs="0" />
+                <xs:element name="demand_x0020_base_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="demand_x0020_met" type="xs:double" minOccurs="0" />
+                <xs:element name="demand_x0020_profile_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_profile_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_profile_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_scenario_x0020_3" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_NTC_x0020_multiplier_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_NTC_x0020_multiplier_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_NTC_x0020_multiplier_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_NTC_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_NTC_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="revenues" type="xs:double" minOccurs="0" />
+                <xs:element name="volume_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="volumes" type="xs:double" minOccurs="0" />
+                <xs:element name="status" type="xs:string" minOccurs="0" />
+                <xs:element name="export_x0020_price_x0020_smoothed_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
+                <xs:element name="curtailed_x0020_demand" type="xs:double" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_3" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Investor" msdata:EntityTypeName="Investor" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="InvestorID" msprop:LookupTableFields="TableFunction2">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InvestorID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="type" type="xs:string" minOccurs="0" />
+                <xs:element name="investment_x0020_size" type="xs:double" minOccurs="0" />
+                <xs:element name="WACC" type="xs:double" minOccurs="0" />
+                <xs:element name="investment_x0020_hurdle_x0020_rate" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_construction" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_lifetime_x0020_maximum" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_permitting" type="xs:double" minOccurs="0" />
+                <xs:element name="cost_x0020_operating_x0020_fixed_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="cost_x0020_operating_x0020_variable_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="cost_x0020_investment_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="risk_x0020_rate" type="xs:double" minOccurs="0" />
+                <xs:element name="discount_x0020_rate" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Market" msdata:EntityTypeName="Market" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="count_x0020_A" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_B" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_C" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_D1" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_D2A" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_D2B" type="xs:double" minOccurs="0" />
+                <xs:element name="count_x0020_E" type="xs:double" minOccurs="0" />
+                <xs:element name="counter" type="xs:double" minOccurs="0" />
+                <xs:element name="counter_x0020_action" type="xs:double" minOccurs="0" />
+                <xs:element name="energy_x0020_independence_x0020_m1" type="xs:double" minOccurs="0" />
+                <xs:element name="energy_x0020_independence_x0020_m2" type="xs:double" minOccurs="0" />
+                <xs:element name="energy_x0020_independence_x0020_m3" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_per_x0020_month" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_percentage_x0020_monthly" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_percentage_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_volumes" type="xs:double" minOccurs="0" />
+                <xs:element name="finished_x0020_loop" type="xs:double" minOccurs="0" />
+                <xs:element name="last_x0020_demand_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="next_x0020_demand_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_monthly" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_yearly_x0020_m1" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_yearly_x0020_m2" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_yearly_x0020_m3" type="xs:double" minOccurs="0" />
+                <xs:element name="revenues" type="xs:double" minOccurs="0" />
+                <xs:element name="revenues_x0020_per_x0020_month" type="xs:double" minOccurs="0" />
+                <xs:element name="spot_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="sum_x0020_demand_x0020_options" type="xs:double" minOccurs="0" />
+                <xs:element name="total_x0020_supplied" type="xs:double" minOccurs="0" />
+                <xs:element name="volumes" type="xs:double" minOccurs="0" />
+                <xs:element name="volumes_x0020_per_x0020_month" type="xs:double" minOccurs="0" />
+                <xs:element name="remaining_x0020_investments" type="xs:double" minOccurs="0" />
+                <xs:element name="investment_x0020_limit_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="import_x0020_capacity_x0020_remaining" type="xs:double" minOccurs="0" />
+                <xs:element name="spot_x0020_price_x0020_smoothed_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_duration" type="xs:double" minOccurs="0" />
+                <xs:element name="renewable_x0020_target" type="xs:string" minOccurs="0" />
+                <xs:element name="DR_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="BES_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="DR_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="BES_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="new_x0020_DR_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="new_x0020_BES_x0020_capacity_x0020_ratio" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_strike_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_size" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_tariff" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_energy_x0020_target" type="xs:double" minOccurs="0" />
+                <xs:element name="R1" type="xs:double" minOccurs="0" />
+                <xs:element name="R2" type="xs:double" minOccurs="0" />
+                <xs:element name="R3" type="xs:double" minOccurs="0" />
+                <xs:element name="R4" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Model" msdata:EntityTypeName="Model" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="Final_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Initial_x0020_Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Time_x0020_Step" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Supply" msdata:EntityTypeName="Supply" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="SupplyID" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SupplyID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="country" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_link" type="xs:string" minOccurs="0" />
+                <xs:element name="investor" type="xs:string" minOccurs="0" />
+                <xs:element name="status" type="xs:string" minOccurs="0" />
+                <xs:element name="type" type="xs:string" minOccurs="0" />
+                <xs:element name="weather" type="xs:string" minOccurs="0" />
+                <xs:element name="age" type="xs:double" minOccurs="0" />
+                <xs:element name="approved_x0020_permits" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_in_x0020_construction" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_installed" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_installed_x0020_1" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_installed_x0020_2" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_installed_x0020_3" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_mothballed" type="xs:double" minOccurs="0" />
+                <xs:element name="capacity_x0020_operating" type="xs:double" minOccurs="0" />
+                <xs:element name="cost_x0020_investment" type="xs:double" minOccurs="0" />
+                <xs:element name="cost_x0020_operating_x0020_fixed" type="xs:double" minOccurs="0" />
+                <xs:element name="cost_x0020_operating_x0020_variable" type="xs:double" minOccurs="0" />
+                <xs:element name="derating_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="dispatchable" type="xs:double" minOccurs="0" />
+                <xs:element name="emissions_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_NTC_x0020_multiplier_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_NTC_x0020_multiplier_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_NTC_x0020_multiplier_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_NTC_x0020_scenario_x0020_1" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_NTC_x0020_scenario_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="in_x0020_permitting" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_m1" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_m2" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_m3" type="xs:double" minOccurs="0" />
+                <xs:element name="reservoir" type="xs:double" minOccurs="0" />
+                <xs:element name="reservoir_x0020_finite" type="xs:double" minOccurs="0" />
+                <xs:element name="reservoir_x0020_initial_x0020_maximum" type="xs:double" minOccurs="0" />
+                <xs:element name="reservoir_x0020_yearly_x0020_degradation" type="xs:double" minOccurs="0" />
+                <xs:element name="revenues" type="xs:double" minOccurs="0" />
+                <xs:element name="storage_x0020_cost" type="xs:double" minOccurs="0" />
+                <xs:element name="storage_x0020_efficiency" type="xs:double" minOccurs="0" />
+                <xs:element name="storage_x0020_enabled" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_construction" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_maximum_x0020_life" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_permitting" type="xs:double" minOccurs="0" />
+                <xs:element name="utilization_x0020_factor" type="xs:double" minOccurs="0" />
+                <xs:element name="volume_x0020_sold" type="xs:double" minOccurs="0" />
+                <xs:element name="volume_x0020_yearly" type="xs:double" minOccurs="0" />
+                <xs:element name="maintenance_x0020_month" type="xs:double" minOccurs="0" />
+                <xs:element name="price_x0020_average_x0020_winter" type="xs:double" minOccurs="0" />
+                <xs:element name="renovated" type="xs:double" minOccurs="0" />
+                <xs:element name="in_x0020_maintenance" type="xs:double" minOccurs="0" />
+                <xs:element name="maintenance_x0020_length" type="xs:double" minOccurs="0" />
+                <xs:element name="mothball_x0020_timer" type="xs:double" minOccurs="0" />
+                <xs:element name="reserved_x0020_amount" type="xs:double" minOccurs="0" />
+                <xs:element name="bidding_x0020_price_x0020_smoothed_x0020_SMOOTHI1_x0020_SMOOTHI" type="xs:double" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario_x0020_3" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Time" msdata:EntityTypeName="Time" msdata:IsEntityTypeSingular="True" msprop:EntityKeyFields="EntityName" msprop:LookupTableFields="TableFunction1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="allow_x0020_mothballing" type="xs:double" minOccurs="0" />
+                <xs:element name="allow_x0020_renovation" type="xs:double" minOccurs="0" />
+                <xs:element name="carbon_x0020_price_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="demand_x0020_scenario" type="xs:double" minOccurs="0" />
+                <xs:element name="enable_x0020_reserve" type="xs:double" minOccurs="0" />
+                <xs:element name="gas_x0020_fuel_x0020_price_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="hour_x0020_of_x0020_simulation" type="xs:double" minOccurs="0" />
+                <xs:element name="hydro_x0020_year" type="xs:double" minOccurs="0" />
+                <xs:element name="nuclear_x0020_fuel_x0020_price_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="profile_x0020_year" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_start_x0020_year" type="xs:double" minOccurs="0" />
+                <xs:element name="time_x0020_flow_x0020_hour" type="xs:double" minOccurs="0" />
+                <xs:element name="year" type="xs:double" minOccurs="0" />
+                <xs:element name="allow_x0020_investments" type="xs:double" minOccurs="0" />
+                <xs:element name="BES_x0020_scenario" type="xs:double" minOccurs="0" />
+                <xs:element name="foreign_x0020_price_x0020_scenario" type="xs:double" minOccurs="0" />
+                <xs:element name="allow_x0020_fuel_x0020_storage_x0020_reserve" type="xs:double" minOccurs="0" />
+                <xs:element name="reserve_x0020_size" type="xs:double" minOccurs="0" />
+                <xs:element name="import_x0020_limit_x0020_2" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_limit_x0020_3" type="xs:string" minOccurs="0" />
+                <xs:element name="import_x0020_limit_x0020_scenario" type="xs:double" minOccurs="0" />
+                <xs:element name="import_x0020_limit_x0020_4" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Weather" msdata:EntityTypeName="Weather" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="WeatherID" msprop:LookupTableFields="daily production profile">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="WeatherID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="hydro_x0020_inflow_x0020_12" type="xs:string" minOccurs="0" />
+                <xs:element name="hydro_x0020_inflow_x0020_13" type="xs:string" minOccurs="0" />
+                <xs:element name="hydro_x0020_inflow_x0020_14" type="xs:string" minOccurs="0" />
+                <xs:element name="hydro_x0020_yearly_x0020_inflow" type="xs:string" minOccurs="0" />
+                <xs:element name="production_x0020_coefficient_x0020_15" type="xs:string" minOccurs="0" />
+                <xs:element name="production_x0020_coefficient_x0020_16" type="xs:string" minOccurs="0" />
+                <xs:element name="production_x0020_coefficient_x0020_17" type="xs:string" minOccurs="0" />
+                <xs:element name="ROR_x0020_flow_x0020_12" type="xs:string" minOccurs="0" />
+                <xs:element name="ROR_x0020_flow_x0020_13" type="xs:string" minOccurs="0" />
+                <xs:element name="ROR_x0020_flow_x0020_14" type="xs:string" minOccurs="0" />
+                <xs:element name="ROR_x0020_yearly_x0020_output" type="xs:string" minOccurs="0" />
+                <xs:element name="solar_x0020_utilization_x0020_factor_x0020_lookup" type="xs:string" minOccurs="0" />
+                <xs:element name="wind_x0020_utilization_x0020_factor_x0020_lookup" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Output" msdata:EntityTypeName="Output" msdata:IsEntityTypeSingular="False" msprop:EntityKeyFields="OutputID" msprop:LookupTableFields="">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OutputID" type="xs:string" minOccurs="0" />
+                <xs:element name="CalendarTime" msdata:DateTimeMode="Unspecified" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Time" type="xs:double" minOccurs="0" />
+                <xs:element name="Enabled" type="xs:boolean" default="true" minOccurs="0" />
+                <xs:element name="EntityName" type="xs:string" minOccurs="0" />
+                <xs:element name="RES_x0020_investments" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_volume" type="xs:double" minOccurs="0" />
+                <xs:element name="CC_x0020_tariff_x0020_rider" type="xs:double" minOccurs="0" />
+                <xs:element name="VT_x0020_trade_x0020_value" type="xs:double" minOccurs="0" />
+                <xs:element name="CC_x0020_average_x0020_price" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_consumption_x0020_realized" type="xs:double" minOccurs="0" />
+                <xs:element name="ENS_x0020_consumption_x0020_maximum" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Demand>
+    <DemandID>demand_0</DemandID>
+    <Enabled>true</Enabled>
+    <supply_x0020_link />
+    <type>interrupt</type>
+    <demand_x0020_base_x0020_price>900</demand_x0020_base_x0020_price>
+  </Demand>
+  <Demand>
+    <DemandID>hydro_p_0</DemandID>
+    <Enabled>true</Enabled>
+    <supply_x0020_link>hydro_p_0</supply_x0020_link>
+    <type>storage</type>
+  </Demand>
+  <Demand>
+    <DemandID>hydro_p_1</DemandID>
+    <Enabled>true</Enabled>
+    <supply_x0020_link>hydro_p_1</supply_x0020_link>
+    <type>storage</type>
+  </Demand>
+  <Demand>
+    <DemandID>hydro_p_2</DemandID>
+    <Enabled>true</Enabled>
+    <supply_x0020_link>hydro_p_2</supply_x0020_link>
+    <type>storage</type>
+  </Demand>
+  <Demand>
+    <DemandID>DR_0</DemandID>
+    <Enabled>false</Enabled>
+    <type>DR</type>
+    <demand_x0020_base>50</demand_x0020_base>
+    <demand_x0020_base_x0020_price>490</demand_x0020_base_x0020_price>
+  </Demand>
+  <Demand>
+    <DemandID>DR_1</DemandID>
+    <Enabled>false</Enabled>
+    <type>DR</type>
+    <demand_x0020_base>50</demand_x0020_base>
+    <demand_x0020_base_x0020_price>500</demand_x0020_base_x0020_price>
+  </Demand>
+  <Demand>
+    <DemandID>DR_2</DemandID>
+    <Enabled>false</Enabled>
+    <type>DR</type>
+    <demand_x0020_base>50</demand_x0020_base>
+    <demand_x0020_base_x0020_price>510</demand_x0020_base_x0020_price>
+  </Demand>
+  <Demand>
+    <DemandID>BES_0</DemandID>
+    <Enabled>true</Enabled>
+    <type>storage</type>
+  </Demand>
+  <Investor>
+    <InvestorID>investor_0</InvestorID>
+    <Enabled>true</Enabled>
+    <type>solar</type>
+    <investment_x0020_size>100</investment_x0020_size>
+    <time_x0020_construction>1</time_x0020_construction>
+    <time_x0020_lifetime_x0020_maximum>30</time_x0020_lifetime_x0020_maximum>
+    <time_x0020_permitting>0.5</time_x0020_permitting>
+    <cost_x0020_operating_x0020_fixed_x0020_lookup>(2015, 14), (2017, 9.6), (2020, 7.2), (2030, 5.1), (2040, 4.2), (2050, 3.3)</cost_x0020_operating_x0020_fixed_x0020_lookup>
+    <cost_x0020_operating_x0020_variable_x0020_lookup>(2015, 0), (2050, 0)</cost_x0020_operating_x0020_variable_x0020_lookup>
+    <cost_x0020_investment_x0020_lookup>(2016, 1778), (2017, 1212), (2018, 940.5), (2020, 851.7), (2025, 723.8), (2030, 608.2), (2035, 553.2), (2040, 481.3), (2050, 371.6)</cost_x0020_investment_x0020_lookup>
+  </Investor>
+  <Investor>
+    <InvestorID>investor_1</InvestorID>
+    <Enabled>true</Enabled>
+    <type>wind</type>
+    <investment_x0020_size>100</investment_x0020_size>
+    <time_x0020_construction>3</time_x0020_construction>
+    <time_x0020_lifetime_x0020_maximum>25</time_x0020_lifetime_x0020_maximum>
+    <time_x0020_permitting>6</time_x0020_permitting>
+    <cost_x0020_operating_x0020_fixed_x0020_lookup>(2015, 51.3), (2020, 48), (2025, 44.3), (2030, 40.6), (2035, 38.8), (2040, 36.9), (2050, 33.2)</cost_x0020_operating_x0020_fixed_x0020_lookup>
+    <cost_x0020_operating_x0020_variable_x0020_lookup>(2015, 0), (2050, 0)</cost_x0020_operating_x0020_variable_x0020_lookup>
+    <cost_x0020_investment_x0020_lookup>(2016, 1528.8), (2017, 1437.5), (2020, 1315.7), (2025, 1038.4), (2030, 724.1), (2035, 672.1), (2040, 645.7), (2050, 592.8)</cost_x0020_investment_x0020_lookup>
+  </Investor>
+  <Investor>
+    <InvestorID>investor_2</InvestorID>
+    <Enabled>true</Enabled>
+    <type>gas</type>
+    <investment_x0020_size>250</investment_x0020_size>
+    <time_x0020_construction>3</time_x0020_construction>
+    <time_x0020_lifetime_x0020_maximum>55</time_x0020_lifetime_x0020_maximum>
+    <time_x0020_permitting>3</time_x0020_permitting>
+    <cost_x0020_operating_x0020_fixed_x0020_lookup>(2015, 10.4), (2050, 10.4)</cost_x0020_operating_x0020_fixed_x0020_lookup>
+    <cost_x0020_operating_x0020_variable_x0020_lookup>(2015, 2.7), (2050, 2.7)</cost_x0020_operating_x0020_variable_x0020_lookup>
+    <cost_x0020_investment_x0020_lookup>(2016, 1054.5), (2020, 1048.4), (2030, 1001.1), (2040, 966.4), (2050, 927.1)</cost_x0020_investment_x0020_lookup>
+  </Investor>
+  <Market>
+    <Enabled>true</Enabled>
+  </Market>
+  <Supply>
+    <SupplyID>nuclear_0</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <demand_x0020_link />
+    <status>on</status>
+    <type>nuclear</type>
+    <age>46</age>
+    <capacity_x0020_installed>390</capacity_x0020_installed>
+    <cost_x0020_investment>6157.9</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>99.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.3</cost_x0020_operating_x0020_variable>
+    <time_x0020_maximum_x0020_life>47</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.87</utilization_x0020_factor>
+    <maintenance_x0020_month>6</maintenance_x0020_month>
+    <maintenance_x0020_length>1095</maintenance_x0020_length>
+  </Supply>
+  <Supply>
+    <SupplyID>nuclear_1</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <demand_x0020_link />
+    <status>on</status>
+    <type>nuclear</type>
+    <age>39</age>
+    <capacity_x0020_installed>1035</capacity_x0020_installed>
+    <cost_x0020_investment>6157.9</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>99.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.3</cost_x0020_operating_x0020_variable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.87</utilization_x0020_factor>
+    <maintenance_x0020_month>8</maintenance_x0020_month>
+    <maintenance_x0020_length>1095</maintenance_x0020_length>
+  </Supply>
+  <Supply>
+    <SupplyID>nuclear_2</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>nuclear</type>
+    <age>49</age>
+    <capacity_x0020_installed>380</capacity_x0020_installed>
+    <cost_x0020_investment>6157.9</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>99.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.3</cost_x0020_operating_x0020_variable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.87</utilization_x0020_factor>
+    <maintenance_x0020_month>5</maintenance_x0020_month>
+    <maintenance_x0020_length>1095</maintenance_x0020_length>
+  </Supply>
+  <Supply>
+    <SupplyID>nuclear_3</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>nuclear</type>
+    <age>47</age>
+    <capacity_x0020_installed>380</capacity_x0020_installed>
+    <cost_x0020_investment>6157.9</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>99.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.3</cost_x0020_operating_x0020_variable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.87</utilization_x0020_factor>
+    <maintenance_x0020_month>9</maintenance_x0020_month>
+    <maintenance_x0020_length>1095</maintenance_x0020_length>
+  </Supply>
+  <Supply>
+    <SupplyID>nuclear_4</SupplyID>
+    <Enabled>true</Enabled>
+    <investor />
+    <status>on</status>
+    <type>nuclear</type>
+    <age>34</age>
+    <capacity_x0020_installed>1245</capacity_x0020_installed>
+    <cost_x0020_investment>6157.9</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>99.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.3</cost_x0020_operating_x0020_variable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.87</utilization_x0020_factor>
+    <maintenance_x0020_month>7</maintenance_x0020_month>
+    <maintenance_x0020_length>1095</maintenance_x0020_length>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_0</SupplyID>
+    <Enabled>true</Enabled>
+    <investor />
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>3000</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>1329603</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>2110480</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_enabled>0</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_1</SupplyID>
+    <Enabled>true</Enabled>
+    <investor />
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>3000</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>1329603</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>2110480</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_enabled>0</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_2</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>2746</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>1217030</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>1931793</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_enabled>0</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_p_0</SupplyID>
+    <Enabled>true</Enabled>
+    <demand_x0020_link>hydro_p_0</demand_x0020_link>
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>1000</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>443201</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>703493</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_efficiency>0.8</storage_x0020_efficiency>
+    <storage_x0020_enabled>1</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_p_1</SupplyID>
+    <Enabled>true</Enabled>
+    <demand_x0020_link>hydro_p_1</demand_x0020_link>
+    <investor />
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>1000</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>443201</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>703493</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_efficiency>0.8</storage_x0020_efficiency>
+    <storage_x0020_enabled>1</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>hydro_p_2</SupplyID>
+    <Enabled>true</Enabled>
+    <demand_x0020_link>hydro_p_2</demand_x0020_link>
+    <status>on</status>
+    <type>hydro</type>
+    <weather>hydro</weather>
+    <capacity_x0020_installed>1763</capacity_x0020_installed>
+    <cost_x0020_investment>5724.4</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>31.1</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>6</cost_x0020_operating_x0020_variable>
+    <reservoir>781363</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>1240259</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_efficiency>0.8</storage_x0020_efficiency>
+    <storage_x0020_enabled>1</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>ror_0</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>ror</type>
+    <weather>ror</weather>
+    <capacity_x0020_installed>2000</capacity_x0020_installed>
+    <cost_x0020_investment>6289.3</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>113.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>ror_1</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>ror</type>
+    <weather>ror</weather>
+    <capacity_x0020_installed>1000</capacity_x0020_installed>
+    <cost_x0020_investment>6289.3</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>113.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>ror_2</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>ror</type>
+    <weather>ror</weather>
+    <capacity_x0020_installed>1633</capacity_x0020_installed>
+    <cost_x0020_investment>6289.3</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>113.2</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>waste_0</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <investor />
+    <status>on</status>
+    <type>waste</type>
+    <weather>waste</weather>
+    <capacity_x0020_installed>200</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>109.8</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>5.5</cost_x0020_operating_x0020_variable>
+    <reservoir>67200</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>134400</reservoir_x0020_initial_x0020_maximum>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>waste_1</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <investor />
+    <status>on</status>
+    <type>waste</type>
+    <weather>waste</weather>
+    <capacity_x0020_installed>100</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>109.8</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>5.5</cost_x0020_operating_x0020_variable>
+    <reservoir>33600</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>67200</reservoir_x0020_initial_x0020_maximum>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>waste_2</SupplyID>
+    <Enabled>true</Enabled>
+    <country />
+    <investor />
+    <status>on</status>
+    <type>waste</type>
+    <weather>waste</weather>
+    <capacity_x0020_installed>64</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>109.8</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>5.5</cost_x0020_operating_x0020_variable>
+    <reservoir>21504</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>43008</reservoir_x0020_initial_x0020_maximum>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>LTC_0</SupplyID>
+    <Enabled>true</Enabled>
+    <country>FR</country>
+    <status>on</status>
+    <type>contract</type>
+    <age>48</age>
+    <capacity_x0020_installed>768</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>35</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>LTC_1</SupplyID>
+    <Enabled>true</Enabled>
+    <country>FR</country>
+    <status>on</status>
+    <type>contract</type>
+    <age>43</age>
+    <capacity_x0020_installed>256</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>35</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>LTC_2</SupplyID>
+    <Enabled>true</Enabled>
+    <country>FR</country>
+    <status>on</status>
+    <type>contract</type>
+    <age>38</age>
+    <capacity_x0020_installed>257</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>35</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>LTC_3</SupplyID>
+    <Enabled>true</Enabled>
+    <country>FR</country>
+    <status>on</status>
+    <type>contract</type>
+    <weather />
+    <age>33</age>
+    <capacity_x0020_installed>767</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>35</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>LTC_4</SupplyID>
+    <Enabled>true</Enabled>
+    <country>FR</country>
+    <status>on</status>
+    <type>contract</type>
+    <weather />
+    <age>28</age>
+    <capacity_x0020_installed>640</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>35</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>50</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>solar_0</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_0</investor>
+    <status>on</status>
+    <type>solar</type>
+    <weather>solar</weather>
+    <age>1</age>
+    <capacity_x0020_installed>500</capacity_x0020_installed>
+    <cost_x0020_investment>1778</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>14</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>30</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.135</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>solar_1</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_1</investor>
+    <status>on</status>
+    <type>solar</type>
+    <weather>solar</weather>
+    <age>2</age>
+    <capacity_x0020_installed>500</capacity_x0020_installed>
+    <cost_x0020_investment>1778</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>14</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>30</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.135</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>solar_2</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_2</investor>
+    <status>on</status>
+    <type>solar</type>
+    <weather>solar</weather>
+    <age>3</age>
+    <capacity_x0020_installed>394</capacity_x0020_installed>
+    <cost_x0020_investment>1778</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>14</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>30</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.135</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>wind_0</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_0</investor>
+    <status>on</status>
+    <type>wind</type>
+    <weather>wind</weather>
+    <age>1</age>
+    <capacity_x0020_installed>20</capacity_x0020_installed>
+    <cost_x0020_investment>1751.1</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>51.3</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>25</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.309</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>wind_1</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_1</investor>
+    <status>on</status>
+    <type>wind</type>
+    <weather>wind</weather>
+    <age>2</age>
+    <capacity_x0020_installed>20</capacity_x0020_installed>
+    <cost_x0020_investment>1751.1</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>51.3</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>25</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.309</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>wind_2</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_2</investor>
+    <status>on</status>
+    <type>wind</type>
+    <weather>wind</weather>
+    <age>3</age>
+    <capacity_x0020_installed>20</capacity_x0020_installed>
+    <cost_x0020_investment>1751.1</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>51.3</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>25</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.309</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>gas_0</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_0</investor>
+    <status>on</status>
+    <type>gas</type>
+    <weather />
+    <age>20</age>
+    <capacity_x0020_installed>180</capacity_x0020_installed>
+    <cost_x0020_investment>1054.5</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>10.4</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.7</cost_x0020_operating_x0020_variable>
+    <emissions_x0020_factor>0.342834</emissions_x0020_factor>
+    <time_x0020_maximum_x0020_life>55</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.8</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>gas_1</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_1</investor>
+    <status>on</status>
+    <type>gas</type>
+    <weather />
+    <age>20</age>
+    <capacity_x0020_installed>180</capacity_x0020_installed>
+    <cost_x0020_investment>1054.5</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>10.4</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.7</cost_x0020_operating_x0020_variable>
+    <emissions_x0020_factor>0.342834</emissions_x0020_factor>
+    <time_x0020_maximum_x0020_life>55</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.8</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>gas_2</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_2</investor>
+    <status>on</status>
+    <type>gas</type>
+    <age>20</age>
+    <capacity_x0020_installed>180</capacity_x0020_installed>
+    <cost_x0020_investment>1054.5</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>10.4</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>2.7</cost_x0020_operating_x0020_variable>
+    <emissions_x0020_factor>0.342834</emissions_x0020_factor>
+    <time_x0020_maximum_x0020_life>55</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.8</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <SupplyID>ENS</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>ENS</type>
+    <weather />
+    <capacity_x0020_installed>100000</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_variable>3000</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>80</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>BES_0</SupplyID>
+    <Enabled>true</Enabled>
+    <status>on</status>
+    <type>battery</type>
+    <age>0</age>
+    <capacity_x0020_installed>50</capacity_x0020_installed>
+    <cost_x0020_operating_x0020_fixed>0</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <reservoir>0</reservoir>
+    <reservoir_x0020_finite>1</reservoir_x0020_finite>
+    <reservoir_x0020_initial_x0020_maximum>400</reservoir_x0020_initial_x0020_maximum>
+    <storage_x0020_efficiency>0.95</storage_x0020_efficiency>
+    <storage_x0020_enabled>1</storage_x0020_enabled>
+    <time_x0020_maximum_x0020_life>20</time_x0020_maximum_x0020_life>
+  </Supply>
+  <Supply>
+    <SupplyID>solar_3</SupplyID>
+    <Enabled>true</Enabled>
+    <investor>investor_0</investor>
+    <type>solar</type>
+    <approved_x0020_permits>200</approved_x0020_permits>
+    <cost_x0020_investment>1778</cost_x0020_investment>
+    <cost_x0020_operating_x0020_fixed>14</cost_x0020_operating_x0020_fixed>
+    <cost_x0020_operating_x0020_variable>0</cost_x0020_operating_x0020_variable>
+    <dispatchable>0</dispatchable>
+    <time_x0020_maximum_x0020_life>30</time_x0020_maximum_x0020_life>
+    <utilization_x0020_factor>0.135</utilization_x0020_factor>
+  </Supply>
+  <Supply>
+    <Enabled>true</Enabled>
+  </Supply>
+  <Time>
+    <Enabled>true</Enabled>
+  </Time>
+  <Weather>
+    <WeatherID>none</WeatherID>
+    <Enabled>true</Enabled>
+  </Weather>
+  <Weather>
+    <WeatherID>waste</WeatherID>
+    <Enabled>true</Enabled>
+  </Weather>
+</Entities>

@@ -1,0 +1,33 @@
+\section{The hybrid model}
+\label{sec:}
+
+The following is the documentation for the hybrid model. This includes the script files that are needed to connect the policy context model (electricity model in the present case) with the policy emergence model.
+
+%%%%%%%%%%%%
+\subsection{run\_batch.py}
+
+This script is used to simulate the entire hybrid model for different scenario. To this effect, it contains the inputs for all models. This includes the inputs for the hybrid model itself (number of steps, duration of steps, number of repetitions, number of scenarios, ...), the inputs for the policy context, and the inputs for the policy emergence model (actor distribution, actor belief profiles, ...)
+
+This is then followed by the for loop that simulate the hybrid model. This includes the simulation of a warm up round. Then the policy context is simulated n times for every policy process step simulation. Each feeds the other through indicators and policy selection. The results are all extracted using the data collector from each of the model. The files are saved within .csv files.
+
+%%%%%%%%%%%% end of run\_batch.py
+
+
+%%%%%%%%%%%%
+\subsection{model\_module\_interface.py}
+
+This script is used to connect the policy context to the policy emergence model. This part of the model will change every time a new policy context is considered. For this, two functions are considered:
+
+\begin{itemize}
+\item \texttt{belief\_tree\_input()}
+
+This function is used to define the agent issue tree. It includes the specification of the deep core, policy core and secondary issues.
+
+\item \texttt{policy\_instrument\_input()}
+
+This function is used to define the policy instruments that the agents can select.
+
+\end{itemize}
+
+
+%%%%%%%%%%%% end of model\_module\_interface.py

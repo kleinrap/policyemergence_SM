@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Policy making code</title>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <h1>run.py</h1>
+  
+  <!-- RUN.PY FILE -->
+	<ul class="treeView">
+      <li>
+        run.py file
+        <ul class="collapsibleList">
+          <li> Select the theory </li>
+          <li>Specifying whether exploration or not - This will define what initialisation file is considered</li>
+          <li>Selecting the required external events</li>
+          <li> Select initialisation file 
+            <ul class="collapsibleList">
+              <li>This is the list for the initialisation file (initialisation.py or initialisation_exploration.py)</li>
+            </ul>
+          </li>
+          <li>Selecting the number of each agents</li>
+          <li class="lastChild">Loop: Run through all experiments
+            <ul class="collapsibleList">
+                <li class="lastChild">Loop: Additional option to select specific experiments
+                <ul class="collapsibleList">
+                  <li>Creation of the initial values dictionnary</li>
+                  <li>Creation of the agent list</li>
+                  <li>Parameter specification for data collection for each possible theory</li>
+                  <li> Loop: Running through all ticks
+                    <ul class="collapsibleList">
+                      <li>model.py file</li>
+                    </ul>
+                  </li>
+                  <li class="lastChild">Storing the data from the data collector</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  </ul>
+
+  <h1>model.py</h1>
+
+   <!-- MODEL.PY FILE -->
+  <ul class="treeView">
+    <li>0. import appropriate files</li>
+    <li>1. PolicyEmergence class - child of the Model class
+      <ul class="collapsibleList">
+
+        <li>1. Initialisation function __init__
+          <ul class="collapsibleList">
+            <li>1. Extracting the inputs from the input dictionnary</li>
+            <li>2. Technical model parameter inputs</li>
+            <li>3. Derived inputs</li>
+            <li>4. Creation of the master and agent action lists</li>
+            <li>5. Creation of the tree cells for the technical forest fire model</li>
+            <li>6. None interests and partial knowledge initialisation</li>
+            <li>7. Creation of the list of all links</li>
+            <li>8. Initial update of the conflict levels</li>
+            <li>9. Initialisation of the 3S-related parameters</li>
+            <li>10. Initialisation of the ACF-related parameters</li>
+          </ul>
+        </li>
+
+        <li>2. Step function
+          <ul class="collapsibleList">
+            <li>1. TICK INITIALISATION</li>
+            <li>2. Iterate the tick number</li>
+            <li>3. Event selection parameters</li>
+            <li>4. Technical model simulation (technical_model.py)
+              <ul class="collapsibleList">
+                <li>1. Technical model simulation</li>
+                <li>2. Update of the truth belieftree</li>
+                <li>3. Implementing the policy instruments on the technical model</li>
+                <li>4. Update of the truth belieftree</li>
+              </ul>
+            </li>
+            <li>5. Electorate actions on policy makers</li>
+            <li>6. Update of the agents' states (agents.py)
+              <ul class="collapsibleList">
+                <li>1. Truth agent update</li>
+                <li>2. External parties update</li>
+                <li>3. Electorate update</li>
+                <li>4. Policy makers update</li>
+                <li>5. Policy entrepreneurs update</li>
+              </ul>
+            <li>7. Principle core partial knowledge share</li>
+            <li>8. Initialisation of all partial knowledge values (first tick only)
+             <ul class="collapsibleList">
+                <li>1. For the belief tree of all agents</li>
+                <li>2. For the policy and instrument tree of all agents [3S]</li>
+              </ul>
+            </li>
+            <li>9. AGENDA SETTING</li>
+            <li>10. Agent issue classification
+              <ul class="collapsibleList">
+                <li>1. Preference update for all agents</li>
+                <li>2. Conflict level update for all links</li>
+                <li>3. Issue seection</li>
+              </ul>
+            </li>
+            <li>11. The actions
+              <ul class="collapsibleList">
+                <li>1. The group actions [3S/ACF]
+                  <ul class="collapsibleList">
+                    <li>1. The team actions [3S]
+                      <ul class="collapsibleList">
+                        <li>1. Assigning the total resources</li>
+                        <li>2. Agent-team actions</li>
+                        <li>3. Belief actions in a team</li>
+                      </ul>
+                    </li>
+                    <li>2. The coalition actions [ACF]
+                      <ul class="collapsibleList">
+                        <li>1. Assigning the total resources</li>
+                        <li>2. Agent-coalition actions
+                          <ul class="collapsibleList">
+                            <li>1. Reset of the coalition assignment</li>
+                            <li>2. Creation of the coalitions</li>
+                          </ul>
+                        </li>
+                        <li>3. Belief actions in a team</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>2. The agent actions
+                  <ul class="collapsibleList">
+                    <li>1. Distribution of the resources</li>
+                    <li>2. Upkeep of the network</li>
+                    <li>3. Belief actions of the agents</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>12. Creation of the agenda
+              <ul class="collapsibleList">
+                <li>1. Agent issue selection</li>
+                <li>2. Agenda creation</li>
+              </ul>
+            </li>
+            <li>13. POLICY FORMULATION</li>
+            <li>14. Agent instrument classification
+              <ul class="collapsibleList">
+                <li>1. Conflict level update</li>
+                <li>2. Policy instrument selection</li>
+              </ul>
+            </li>
+            <li>15. The actions
+              <ul class="collapsibleList">
+                <li>1. The group actions [3S/ACF]
+                  <ul class="collapsibleList">
+                    <li>1. The team actions [3S]
+                      <ul class="collapsibleList">
+                        <li>1. Assigning the total resources</li>
+                        <li>2. Agent-team actions</li>
+                        <li>3. Belief actions in a team</li>
+                      </ul>
+                    </li>
+                    <li>2. The coalition actions [ACF]
+                      <ul class="collapsibleList">
+                        <li>1. Assigning the total resources</li>
+                        <li>2. Agent-coalition actions
+                          <ul class="collapsibleList">
+                            <li>1. Reset of the coalition assignment</li>
+                            <li>2. Creation of the coalitions</li>
+                          </ul>
+                        </li>
+                        <li>3. Belief actions in a team</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>2. The agent actions
+                  <ul class="collapsibleList">
+                    <li>1. Distribution of the resources</li>
+                    <li>2. Upkeep of the network</li>
+                    <li>3. Belief actions of the agents</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>16. Agent instrument classification</li>
+            <li>17. Instrument implementation check</li>
+            <li>18. END OF TICK PROCEDURES</li>
+            <li>19. Conflict level update</li>
+            <li>20. Data collection</li>
+            <li>21. Network upkeep procedures
+              <ul class="collapsibleList">
+                <li>1. Awareness decay implementation</li>
+                <li>2. Link negative check</li>
+                <li>3. Decay implementation</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li>3. Agenda selection function
+          <ul class="collapsibleList">
+            <li>1. Selecting the policy maker agents</li>
+            <li>2. For each PM, selecting the chosen issue</li>
+            <li>3. Selecting the most chosen issue</li>
+            <li>4. Setting the agenda</li>
+          </ul>
+        </li>
+
+        <li>4. Agenda selection function [3S]
+          <ul class="collapsibleList">
+            <li>1. Selecting the policy maker agents</li>
+            <li>2. For each PM, selecting the chosen policy and problem</li>
+            <li>3. Selecting the most chosen polivy and problem</li>
+            <li>4. Setting the agenda with policy and problem</li>
+          </ul>
+        </li>
+
+        <li>5. Preference update
+          <ul class="collapsibleList">
+            <li>1. Preference calculation for the principle issues
+              <ul class="collapsibleList">
+                <li>1. Calculation of the denominator</li>
+                <li>2. Selection of the numerator and calculation of the preference</li>
+              </ul>
+            </li>
+            <li>2. Preference calculation for the policy core issues
+              <ul class="collapsibleList">
+                <li>1. Calculation of the denominator</li>
+                <li>2. Addition of the gaps of the associated policy core issues</li>
+                <li>3. Calculation of the numerator and the preference
+                  <ul class="collapsibleList">
+                    <li>1. Calculation of the right side of the numerator</li>
+                    <li>2. Addition of the gap to the numerator</li>
+                    <li>3. Calculation of the preference</li>
+                  </ul>
+              </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>6. Electorate preference update
+          <ul class="collapsibleList">
+            <li>1. Preference calculation of the principle issues</li>
+            <li>2. Preference calculation of the policy core issues</li>
+            <li>3. Preference calculation of the secondary issues</li>
+          </ul>
+        </li>
+        <li>7. Issue selection
+          <ul class="collapsibleList">
+            <li>1. Assigning all policy core issue preferences into an array</li>
+            <li>2. Selection of the highest preference policy core issue and setting to agent selected issue</li>
+          </ul>
+        </li>
+        <li>[3S] AS - Issue selection
+          <ul class="collapsibleList">
+            <li>
+              <ul class="collapsibleList">
+                <li>1. </li>
+                <li>2. </li>
+                <li>3. </li>
+                <li>4. </li>
+                <li>5. </li>
+                <li>6. </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>[3S] PF - Issue selection
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>Instrument preference update
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>Instrument selection
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>Instrument implementation check
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>[3S] Instrument implementation check
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>Add function
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>Conflict level update
+          <ul class="collapsibleList">
+            <li></li>
+          </ul>
+        </li>
+        <li>[ACF] AS - Coalition creation
+          <ul class="collapsibleList">
+            <li>
+              <ul class="collapsibleList">
+                <li>1. </li>
+                <li>2. </li>
+                <li>3. </li>
+                <li>4. </li>
+                <li>5. </li>
+                <li>6. </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>[ACF] PF - Coalition creation
+          <ul class="collapsibleList">
+            <li>
+              <ul class="collapsibleList">
+                <li>1. </li>
+                <li>2. </li>
+                <li>3. </li>
+                <li>4. </li>
+                <li>5. </li>
+                <li>6. </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </ul>
+
+
+
+<!--             <li>
+              Actions
+              <ul>
+                <li>
+                  Creation
+                  <ul>
+                    <li>apply()</li>
+                    <li class="lastChild">applyTo(node)</li>
+                  </ul>
+                </li>
+                <li class="lastChild">
+                  Toggling
+                  <ul>
+                    <li>Expanding/opening</li>
+                    <li class="lastChild">Collapsing/closing</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="lastChild">
+              Uses
+              <ul>
+                <li>Directory listings</li>
+                <li>Tree views</li>
+                <li class="lastChild">Outline views</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    </ul> -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

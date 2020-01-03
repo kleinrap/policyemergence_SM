@@ -1,0 +1,144 @@
+Code files and partial documentation:
+
+- agents.py:
+	- class Agent:
+		- step()
+		- network_update_as()
+		- network_update_pf()
+		- agent_team_threeS_as()
+		- agent_team_threeS_pf()
+		- disband_team_as()
+		- disband_team_pf()
+		- remove_agent_team_as()
+		- remove_agent_team_pf()
+		- belonging_level_as()
+		- belonging_level_pf()
+		- knowledge_exchange_team
+		- one_minus_one_check()
+		- knowledge_exchange_coalition_policy()
+		- knowledge_exchange_coalition_instrument()
+- agents_creation.py
+	- Class Truth(Agent):
+	- Class Electorate(Agent):
+		- electorate_influence()
+		- one_minus_one_check()
+		- electorate_states_update()
+	- Class Externalparties(Agent):
+		- external_parties_states_update()
+		- external_parties_actions_as()
+		- external_parties_actions_pf()
+		- external_parties_actions_as_3S()
+		- external_parties_actions_pf_3S()
+		- preference_update_electorate()
+		- one_minus_one_check()
+	- Class Policymakers(Agent):
+		- policymakers_states_update()
+		- pm_pe_actions_as()
+		- pm_pe_actions_pf()
+		- pm_pe_actions_as_3S()
+		- pm_pe_actions_pf_3S()
+		- preference_update_as_PC()
+		- preference_update_pf_PC()
+		- instrument_preference_update()
+		- one_minus_one_check2()
+	- Class Policyentres(Agent):
+		- policyentres_states_update()
+		- pm_pe_actions_as()
+		- pm_pe_actions_pf()
+		- pm_pe_actions_as_3S()
+		- pm_pe_actions_pf_3S()
+		- preference_update_as_PC()
+		- preference_update_pf_PC()
+		- instrument_preference_update()
+		- one_minus_one_check()
+- coalition_creation.py
+	- Class Coalition():
+		- coalition_belief_actions_ACF_as()
+		- coalition_belief_actions_ACF_pf()
+		- new_link_ACF_as()
+		- new_link_ACF_pf()
+		- knowledge_exchange_coalition()
+		- one_minus_one_check2()
+- data_collection.py
+	- Class DataCollector:
+		- _new_model_reporter()
+		- _new_electorate_reporter()
+		- _new_agent_reporter()
+		- _new_links_reporter()
+		- _new_team_as_reporter()
+		- _new_team_pf_reporter()
+		- _new_coalition_as_reporter()
+		- _new_coalition_pf_reporter()
+		- _new_table()
+		- collect()
+		- add_table_row()
+		- get_model_vars_dataframe()
+		- get_agent_vars_dataframe()
+		- get_links_vars_dataframe()
+		- get_team_as_vars_dataframe()
+		- get_team_pf_vars_dataframe()
+		- get_coalition_as_vars_dataframe()
+		- get_coalition_pf_vars_dataframe()
+		- get_table_dataframe()
+- initialisation_exploration.py
+	This is the file where the main agents and network inputs are specified for the purposes of exploration.
+	- initial_values_exploration()
+	- one_minus_one_check2()
+	- add()
+	- conflict_level_update
+- initialisation.py:
+	This is the file where the main agents and network inputs are specified by the modeller for all possible experiments.
+	- initial_values_exploration()
+	- one_minus_one_check2()
+	- add()
+	- conflict_level_update()
+- model.py
+	- Class PolicyEmergence(Model):
+		- step()
+		- agenda_selection()
+		- agenda_selection_3S()
+		- preference_udapte()
+		- preference_udapte_electorate()
+		- issue_selection()
+		- issue_selection_as_3S()
+		- issue_selection_pf_3S()
+		- instrument_preference_update()
+		- instrument_selection()
+		- instrument_implementation_check()
+		- instrument_implementation_check_3S()
+		- add()
+		- conflict_level_update()
+		- coalition_creation_as()
+		- coalition_creation_pf()
+		- one_minus_one_check2()
+- network_creation.py
+	- Class PolicyNetworkLinks(Agent):
+- run.py:
+	This is the main file from which the model is run.
+- schedule.py
+	- Class RandomActivationByBreed(RandomActivation):
+		- add()
+		- remove()
+		- step()
+		- step_breed()
+		- get_breed_count()
+- team_creation.py
+	- Class Team():
+		- team_belief_actions_threeS_as()
+		- team_belief_actions_threeS_pf()
+		- new_link_threeS_as()
+		- new_link_threeS_pf()
+		- knowledge_exchange_team()
+		- knowledge_exchange_team_policy()
+		- knowledge_exchange_team_instrument()
+		- one_minus_one_check2()
+- technical_model.py
+	- Class Technical_Model():
+		- add()
+		- cell_count()
+		- states_update()
+		- measures_implementation()
+- tree_cell.py
+	- Class TreeCell(Agent):
+		- step()
+		- get_pos()

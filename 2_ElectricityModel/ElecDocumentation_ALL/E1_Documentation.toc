@@ -1,0 +1,183 @@
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Modelling}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}The electricity model}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Purpose of the model}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Entities, state variables and scales}{9}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Process overview and scheduling}{10}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Design concepts}{11}{subsection.2.1.4}
+\contentsline {paragraph}{Basic principles}{11}{section*.2}
+\contentsline {paragraph}{Emergence}{11}{section*.3}
+\contentsline {paragraph}{Adaptation}{11}{section*.4}
+\contentsline {paragraph}{Objectives}{11}{section*.5}
+\contentsline {paragraph}{Prediction}{11}{section*.6}
+\contentsline {paragraph}{Sensing}{11}{section*.7}
+\contentsline {paragraph}{Stochasticity}{12}{section*.8}
+\contentsline {paragraph}{Observation}{12}{section*.9}
+\contentsline {subsection}{\numberline {2.1.5}Initialisation}{12}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Input data}{12}{subsection.2.1.6}
+\contentsline {subsection}{\numberline {2.1.7}Submodels}{13}{subsection.2.1.7}
+\contentsline {paragraph}{The spot market}{13}{section*.10}
+\contentsline {paragraph}{The electricity price forecast}{14}{section*.11}
+\contentsline {paragraph}{The profitability calculation}{14}{section*.12}
+\contentsline {paragraph}{The NPV calculation}{14}{section*.13}
+\contentsline {paragraph}{The investment pipeline}{14}{section*.14}
+\contentsline {paragraph}{The international trading}{15}{section*.15}
+\contentsline {paragraph}{The demand aspect of storage in the model}{15}{section*.16}
+\contentsline {section}{\numberline {2.2}The policy process model}{15}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Purpose of the model}{16}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Entities, state variables and scales}{16}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Process overview and scheduling}{17}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Design concepts}{18}{subsection.2.2.4}
+\contentsline {paragraph}{Basic principles}{18}{section*.17}
+\contentsline {paragraph}{Emergence}{18}{section*.18}
+\contentsline {paragraph}{Adaptation}{19}{section*.19}
+\contentsline {paragraph}{Objectives}{19}{section*.20}
+\contentsline {paragraph}{Learning}{19}{section*.21}
+\contentsline {paragraph}{Sensing}{20}{section*.22}
+\contentsline {paragraph}{Interaction}{20}{section*.23}
+\contentsline {paragraph}{Stochasticity}{20}{section*.24}
+\contentsline {paragraph}{Collectives}{20}{section*.25}
+\contentsline {paragraph}{Observation}{20}{section*.26}
+\contentsline {subsection}{\numberline {2.2.5}Input data}{20}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Submodels}{21}{subsection.2.2.6}
+\contentsline {paragraph}{Electorate influence}{21}{section*.27}
+\contentsline {paragraph}{Agent interactions}{21}{section*.28}
+\contentsline {paragraph}{Policy network maintenance}{21}{section*.29}
+\contentsline {paragraph}{Coalition creation}{21}{section*.30}
+\contentsline {paragraph}{Coalition actions and interactions}{21}{section*.31}
+\contentsline {section}{\numberline {2.3}The hybrid model}{22}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}The hybrid model}{22}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}The problem tree}{23}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}The policy instruments}{24}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Implementation}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}The electricity model}{25}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Electricity costs calculation per technology}{25}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Supply amount per technology}{27}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Investment approach}{29}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}The policy process model}{30}{section.3.2}
+\contentsline {section}{\numberline {3.3}Common core}{30}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}The subsystems}{30}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}The agents}{30}{subsection.3.3.2}
+\contentsline {paragraph}{Active agents}{31}{section*.34}
+\contentsline {paragraph}{Passive agents}{32}{section*.35}
+\contentsline {subsection}{\numberline {3.3.3}Belief hierarchy}{33}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Policy network}{35}{subsection.3.3.4}
+\contentsline {paragraph}{Network upkeep and maintenance}{36}{section*.37}
+\contentsline {subsection}{\numberline {3.3.5}Affiliation network}{38}{subsection.3.3.5}
+\contentsline {subsection}{\numberline {3.3.6}The actions - Policy Makers}{39}{subsection.3.3.6}
+\contentsline {paragraph}{Individual framing}{39}{section*.38}
+\contentsline {paragraph}{Individual action - Aim change}{39}{section*.39}
+\contentsline {paragraph}{Individual action - State change}{40}{section*.40}
+\contentsline {subsection}{\numberline {3.3.7}Preference calculation (issues)}{40}{subsection.3.3.7}
+\contentsline {paragraph}{Preference calculation for the principle beliefs}{40}{section*.41}
+\contentsline {paragraph}{Preference calculation for the policy core and secondary beliefs}{41}{section*.42}
+\contentsline {subsection}{\numberline {3.3.8}Partial knowledge and awareness decay}{41}{subsection.3.3.8}
+\contentsline {subsection}{\numberline {3.3.9}Agenda and agenda selection}{42}{subsection.3.3.9}
+\contentsline {subsection}{\numberline {3.3.10}The actions - Policy entrepreneurs}{43}{subsection.3.3.10}
+\contentsline {subsection}{\numberline {3.3.11}The actions - External parties}{43}{subsection.3.3.11}
+\contentsline {paragraph}{Transmitting the states}{43}{section*.43}
+\contentsline {paragraph}{Electorate influence}{44}{section*.44}
+\contentsline {paragraph}{Blanket framing}{44}{section*.45}
+\contentsline {paragraph}{Blanket aim influence}{45}{section*.46}
+\contentsline {paragraph}{Blanket state influence}{45}{section*.47}
+\contentsline {subsection}{\numberline {3.3.12}Electorate passive action on policy makers}{46}{subsection.3.3.12}
+\contentsline {subsection}{\numberline {3.3.13}Policy instruments}{46}{subsection.3.3.13}
+\contentsline {subsection}{\numberline {3.3.14}Preference calculation (instruments)}{47}{subsection.3.3.14}
+\contentsline {paragraph}{Preference calculation}{47}{section*.48}
+\contentsline {paragraph}{Instrument selection calculation}{48}{section*.49}
+\contentsline {subsection}{\numberline {3.3.15}Policy instrument selection and implementation}{48}{subsection.3.3.15}
+\contentsline {paragraph}{Unanimity}{48}{section*.50}
+\contentsline {paragraph}{Majority}{49}{section*.51}
+\contentsline {subsection}{\numberline {3.3.16}External events}{49}{subsection.3.3.16}
+\contentsline {subsection}{\numberline {3.3.17}The model cycle}{50}{subsection.3.3.17}
+\contentsline {section}{\numberline {3.4}Three streams theory}{51}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}The policy instruments}{52}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Preference calculation (problems and policies)}{53}{subsection.3.4.2}
+\contentsline {paragraph}{Problem and policy preference calculation}{53}{section*.53}
+\contentsline {paragraph}{Agenda and agenda selection}{53}{section*.54}
+\contentsline {paragraph}{Policy instrument selection and implementation}{54}{section*.55}
+\contentsline {subsection}{\numberline {3.4.3}The actions (active agents)}{54}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}The teams}{55}{subsection.3.4.4}
+\contentsline {paragraph}{Agent-team actions}{55}{section*.56}
+\contentsline {paragraph}{Start a team}{55}{section*.57}
+\contentsline {paragraph}{Join a team}{57}{section*.58}
+\contentsline {paragraph}{Leave a team}{57}{section*.59}
+\contentsline {paragraph}{Disband a team}{57}{section*.60}
+\contentsline {paragraph}{Belonging level setting}{57}{section*.61}
+\contentsline {paragraph}{Team belief actions}{59}{section*.62}
+\contentsline {subsection}{\numberline {3.4.5}Note on the agent individual belief actions}{61}{subsection.3.4.5}
+\contentsline {subsection}{\numberline {3.4.6}The model cycle}{62}{subsection.3.4.6}
+\contentsline {section}{\numberline {3.5}The advocacy framework coalition}{64}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Coalitions}{64}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Coalition creation}{65}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Intra-coalition actions}{66}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Inter-coalition actions}{66}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}The ACF cycle}{66}{subsection.3.5.5}
+\contentsline {section}{\numberline {3.6}Feedback theory}{68}{section.3.6}
+\contentsline {section}{\numberline {3.7}Diffusion theory}{69}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Super-policy network}{69}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Subsystem network}{69}{subsection.3.7.2}
+\contentsline {paragraph}{Friendly link}{70}{section*.63}
+\contentsline {paragraph}{Dominant/coercive link}{70}{section*.64}
+\contentsline {paragraph}{Competitive link}{71}{section*.65}
+\contentsline {subsection}{\numberline {3.7.3}The diffusion cycle}{71}{subsection.3.7.3}
+\contentsline {section}{\numberline {3.8}The hybrid model}{73}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}KPI calculations}{73}{subsection.3.8.1}
+\contentsline {chapter}{\numberline {4}Code documentation}{77}{chapter.4}
+\contentsline {section}{\numberline {4.1}The electricity model}{77}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}run\_elec.py}{77}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}model\_elec.py}{77}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}asset.py}{84}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}model\_elec\_agents.py}{85}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}model\_elec\_assets.py}{85}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}model\_elec\_agents\_init.py}{86}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}model\_elec\_assets\_init.py}{86}{subsection.4.1.7}
+\contentsline {section}{\numberline {4.2}The policy process model}{86}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}model\_SM.py}{86}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}model\_SM\_agents.py}{86}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}model\_SM\_agents\_initialisation.py}{86}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}model\_SM\_policyImpact.py}{86}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}The hybrid model}{86}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}run\_batch.py}{86}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}model\_module\_interface.py}{86}{subsection.4.3.2}
+\contentsline {chapter}{\numberline {5}Inputs}{87}{chapter.5}
+\contentsline {section}{\numberline {5.1}The electricity model}{87}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Asset investments}{87}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Gas and emission prices}{88}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Water inflow}{88}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Waste inflow}{88}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}Nuclear fuel price}{88}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {5.1.6}Solar radiation and wind capacity}{89}{subsection.5.1.6}
+\contentsline {subsection}{\numberline {5.1.7}Run of river}{89}{subsection.5.1.7}
+\contentsline {subsection}{\numberline {5.1.8}Foreign capacity}{89}{subsection.5.1.8}
+\contentsline {section}{\numberline {5.2}The policy process model}{90}{section.5.2}
+\contentsline {section}{\numberline {5.3}The hybrid model}{90}{section.5.3}
+\contentsline {chapter}{\numberline {6}Model simulation}{91}{chapter.6}
+\contentsline {section}{\numberline {6.1}The steps for model integration}{91}{section.6.1}
+\contentsline {section}{\numberline {6.2}The steps for model simulation}{92}{section.6.2}
+\contentsline {chapter}{\numberline {7}Verification}{93}{chapter.7}
+\contentsline {section}{\numberline {7.1}Model assumptions}{93}{section.7.1}
+\contentsline {section}{\numberline {7.2}Recording and tracking agent behaviour}{93}{section.7.2}
+\contentsline {section}{\numberline {7.3}Single-agent testing}{93}{section.7.3}
+\contentsline {section}{\numberline {7.4}Interaction testing in a minimal model}{93}{section.7.4}
+\contentsline {section}{\numberline {7.5}Design concepts}{93}{section.7.5}
+\contentsline {section}{\numberline {7.6}Multi-agent testing}{93}{section.7.6}
+\contentsline {chapter}{\numberline {8}Experiments}{95}{chapter.8}
+\contentsline {section}{\numberline {8.1}The model hypotheses}{95}{section.8.1}
+\contentsline {section}{\numberline {8.2}The scenarios}{95}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Electorate goal changes}{96}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Growth demand}{98}{subsection.8.2.2}
+\contentsline {section}{\numberline {8.3}The initialisation of the model}{98}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}The policy process model}{98}{subsection.8.3.1}
+\contentsline {paragraph}{The affiliations}{99}{section*.69}
+\contentsline {paragraph}{The actor distribution}{99}{section*.70}
+\contentsline {paragraph}{The actor preferred states}{99}{section*.71}
+\contentsline {paragraph}{The hybrid model duration}{100}{section*.74}
+\contentsline {chapter}{\numberline {9}Model initialisation}{101}{chapter.9}
+\contentsline {chapter}{\numberline {10}Results}{103}{chapter.10}
+\contentsline {chapter}{\numberline {11}Conclusions}{105}{chapter.11}
+\contentsline {chapter}{\numberline {A}Dear Diary}{109}{appendix.A}
+\contentsline {section}{\numberline {A.1}22/10/2019}{109}{section.A.1}
+\contentsline {section}{\numberline {A.2}23/10/2019}{110}{section.A.2}
+\contentsline {section}{\numberline {A.3}24/10/2019}{110}{section.A.3}
+\contentsline {section}{\numberline {A.4}25/10/2019}{110}{section.A.4}

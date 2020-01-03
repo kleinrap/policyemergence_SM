@@ -1,0 +1,6 @@
+run Experiments_LHS
+i = 1
+print(i)
+source('~/Dropbox/Code_Thesis/2_Python/10ACF/Experiments_Input_Files/Experiments_LHS.r', chdir = TRUE)
+install.packages(lhs)
+install.packages("ggplot2")

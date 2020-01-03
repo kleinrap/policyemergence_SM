@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}The agents}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Active agents}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Passive agents}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}The belief system}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}The issue tree}{3}{subsection.2.1}
+\contentsline {paragraph}{Preference calculation for the deep core issues}{5}{section*.3}
+\contentsline {paragraph}{Preference calculation for the policy core and secondary beliefs}{5}{section*.4}
+\contentsline {subsection}{\numberline {2.2}The policy tree}{6}{subsection.2.2}
+\contentsline {paragraph}{Preference calculation for the policy families}{7}{section*.6}
+\contentsline {paragraph}{Preference calculation for the policy instruments}{8}{section*.7}
+\contentsline {subsection}{\numberline {2.3}Problem and policy focused agents}{9}{subsection.2.3}
+\contentsline {section}{\numberline {3}The policy network}{9}{section.3}
+\contentsline {section}{\numberline {4}The model cycle}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Agenda selection}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Policy package selection and implementation}{13}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}External events}{13}{subsection.4.3}
+\contentsline {section}{\numberline {5}Policy learning}{14}{section.5}
+\contentsline {subsection}{\numberline {5.1}General actions}{14}{subsection.5.1}
+\contentsline {paragraph}{Update of the agents' issue beliefs}{14}{section*.8}
+\contentsline {subsection}{\numberline {5.2}Targeted actions}{14}{subsection.5.2}
+\contentsline {paragraph}{Issue versus policy focused actions}{15}{section*.9}
+\contentsline {paragraph}{The likelihood equations for issue focused agents}{16}{section*.10}
+\contentsline {paragraph}{The likelihood equations for policy focused agents}{17}{section*.11}
+\contentsline {paragraph}{The impact equations for issue focused agents}{17}{section*.12}
+\contentsline {paragraph}{The impact equations for policy focused agents}{18}{section*.13}

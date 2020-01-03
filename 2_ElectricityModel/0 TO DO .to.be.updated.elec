@@ -1,0 +1,127 @@
+0 TO DO - Electricity Swiss model
+
+--- SM ---------------
+
+0. Initial model structure
+	- Class of agents (done)
+	- Class of assets (done)
+	- Model skeleton (done)
+	- Input all starting agents (done)
+	- Input all starting assets (done)
+	- Input of the demand load - based on the real inputs (done)
+
+1. Spot market
+	- Simple spot price algorithm (done)
+		- Define simple costs and supply for each technology (done)
+		- Store the bids in price range (done)
+		- Order the bids in price range (done)
+		- Match the demand with the necessary amount of supply (done)
+		- Spot price (demand vs supply) algorithm (done)
+	- Distribute money to owners (done)
+	- Distribute electricity to owners (done)
+	- Distribute electricity to assets (done)
+	- Build the utilisation rate (yearly calculated for each technology) (done)
+	- Define costs and supply for each technology
+			- For CCGT, include fuel costs (done)
+			- For wind (done - but UF is higher than 1 due to inputs)
+			- For solar (done - but UF can go higher than 1 due to inputs)
+			- For nuclear (done)
+			- For waste
+			- For runofriver (done)
+			- For hydro
+			- For hydro pumping
+	- End of year actions
+		- Increase every asset in age
+		- Interupt asset if past lifetime
+	- Inflow for hydro and hydrop (done)
+	- Inflow for waste (done)
+	- Opportunity costs for hydro, hydrop and waste (done)
+
+DONE (I think):
+- Solar - incl. costs, supply
+- Wind - incl. costs, supply
+- Hydro - incl. costs, supply, inflow
+- Hydrop - incl. costs, supply, inflow
+- Run of river - incl. costs, supply
+- Waste - incl. costs, supply, inflow
+- Imports - incl. costs, supply
+- Sport market for simple
+- Reservoir update for demand management
+- Attributed the demand to the multiple assets
+- Change inputs for faster loading
+- Restriction LTC/NTC into the spot market calculation
+- Carbon price for CCGT costs and investments calculations
+- Nuclear decommissioning (included with the age of the plants)
+
+
+TO BE CHECKED:
+- Opportunity costs for hydro, hydrop and waste
+- Run of river total rate
+- Run of river inflow
+- Is there capacity restriction for imports and exports (based on the interconnectors)
+- Is the nuclear phase out included into the model?
+- When can the investors currently re-invest in extending the lifetime of their plants? This shouldnt be at the end of life but at regular intervals five years before the end of life.
+
+
+2. Detailing of spot market
+	- Weather introduction (for production of power plants) (done)
+		- Solar (done)
+		- Wind (done)
+	- Reservoir approach (introduce reservoir)
+	- Add complexity for the price of electricity per technology
+		- For hydro (done)
+		- For waste (done)
+		- For solar (weather dependent)
+		- For wind (weather dependent)
+		- For run of river
+	- Add inter-connections with FR, DE and IT
+	- Add hydro pumping
+	- Add maintenance of the nuclear power plants
+	- Add growing demand over time (with an input parameter)
+
+3. Investments
+	- Introduce the NPV algorithm for each technology (done)
+		- For wind - different investment pipeline depending on acceptance as well
+		- For solar (done)
+		- For CCGT (done)
+	- Introduce a limit of assets planned (done)
+	- Introduce a shelf life for the assets planned by the actors (!done)
+
+4. Inter-connections
+	- Introduction of the country inter-connections with bidding allowed
+
+- Make a proper output program to better verify the model - currently what is exported is not sufficient - yearly produced would be nice as well
+- Display imports and exports properly
+- Make a verification report on all of the aspects of the model
+- Introduce the carbon price into the exports and imports
+
+KNOWN ISSUES - KNOWN BUGS:
+- Utilisation factor for the wind and solar is higher than 1 due to an input file where the load factors can be higher than 1
+	- Why is this?
+	- How can this be fixed?
+	- Where does this input file come from?
+- Wind - The electricity supplied can still be higher than the available capacity - is this normal? is this ok? Right now I do not know as I do not understand the inputs
+- Inputs for fuel are in USD - Conversion to CHF needed
+	- For gas fuel
+	- For nuclear fuel
+
+NOTES:
+- For solar, the inputs should be multiplied by the utilisation factor (not the same one as the one calculated every year) - I did not figure this out just yet what it is - Check on the excel
+
+What seems to be wrong with the current results (03.07.2019):
+- The prices are slightly too high.
+- The water reservoirs do not seem to be filling up sufficiently (probably the water is sold too fast, linked to the prices).
+- There are no investments whatsover in the first 10 years, suggesting the NPV is wrong or not well calibrated.
+- The hydro pumping curves are flat. This suggests that there is a problem with the supply and the opportunity costs.
+
+
+--- SM+1 ---------------
+
+6. Strategic reserve (is this even needed?)
+
+--- SM+2 ---------------
+
+7. Prosumers
+
+
+

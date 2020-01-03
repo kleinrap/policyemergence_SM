@@ -1,0 +1,58 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Modelling}{}% 2
+\BOOKMARK [1][-]{section.2.1}{The electricity model}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Purpose of the model}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{Entities, state variables and scales}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.3}{Process overview and scheduling}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.4}{Design concepts}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.5}{Initialisation}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.6}{Input data}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.7}{Submodels}{section.2.1}% 10
+\BOOKMARK [1][-]{section.2.2}{The policy process model}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.1}{Purpose of the model}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.2}{Entities, state variables and scales}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.3}{Process overview and scheduling}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.4}{Design concepts}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.5}{Input data}{section.2.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.6}{Submodels}{section.2.2}% 17
+\BOOKMARK [1][-]{section.2.3}{The hybrid model}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.3.1}{The hybrid model}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.2}{The problem tree}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.3}{The policy instruments}{section.2.3}% 21
+\BOOKMARK [0][-]{chapter.3}{Implementation}{}% 22
+\BOOKMARK [1][-]{section.3.1}{The electricity model}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.1.1}{Electricity costs calculation per technology}{section.3.1}% 24
+\BOOKMARK [2][-]{subsection.3.1.2}{Supply amount per technology}{section.3.1}% 25
+\BOOKMARK [2][-]{subsection.3.1.3}{Investment approach}{section.3.1}% 26
+\BOOKMARK [1][-]{section.3.2}{The policy process model}{chapter.3}% 27
+\BOOKMARK [0][-]{chapter.4}{Code documentation}{}% 28
+\BOOKMARK [1][-]{section.4.1}{The electricity model}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.1.1}{run\137elec.py}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.2}{model\137elec.py}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.3}{asset.py}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.4}{model\137elec\137agents.py}{section.4.1}% 33
+\BOOKMARK [2][-]{subsection.4.1.5}{model\137elec\137assets.py}{section.4.1}% 34
+\BOOKMARK [2][-]{subsection.4.1.6}{model\137elec\137agents\137init.py}{section.4.1}% 35
+\BOOKMARK [2][-]{subsection.4.1.7}{model\137elec\137assets\137init.py}{section.4.1}% 36
+\BOOKMARK [0][-]{chapter.5}{Inputs}{}% 37
+\BOOKMARK [1][-]{section.5.1}{The electricity model}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.1.1}{Asset investments}{section.5.1}% 39
+\BOOKMARK [2][-]{subsection.5.1.2}{Gas and emission prices}{section.5.1}% 40
+\BOOKMARK [2][-]{subsection.5.1.3}{Water inflow}{section.5.1}% 41
+\BOOKMARK [2][-]{subsection.5.1.4}{Waste inflow}{section.5.1}% 42
+\BOOKMARK [2][-]{subsection.5.1.5}{Nuclear fuel price}{section.5.1}% 43
+\BOOKMARK [2][-]{subsection.5.1.6}{Solar radiation and wind capacity}{section.5.1}% 44
+\BOOKMARK [2][-]{subsection.5.1.7}{Run of river}{section.5.1}% 45
+\BOOKMARK [2][-]{subsection.5.1.8}{Foreign capacity}{section.5.1}% 46
+\BOOKMARK [1][-]{section.5.2}{The policy process model}{chapter.5}% 47
+\BOOKMARK [0][-]{chapter.6}{Verification}{}% 48
+\BOOKMARK [1][-]{section.6.1}{Model assumptions}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.2}{Recording and tracking agent behaviour}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.3}{Single-agent testing}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.4}{Interaction testing in a minimal model}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.5}{Design concepts}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.6}{Multi-agent testing}{chapter.6}% 54
+\BOOKMARK [0][-]{chapter.7}{Experiments}{}% 55
+\BOOKMARK [0][-]{chapter.8}{Model initialisation}{}% 56
+\BOOKMARK [0][-]{chapter.9}{Results}{}% 57
+\BOOKMARK [0][-]{chapter.10}{Conclusions}{}% 58

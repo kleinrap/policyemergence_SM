@@ -1,0 +1,6 @@
+09 March 2018
+The changes that are now being made are done to transform the model into a pluggable model.
+
+10 March 2018
+- Changes of the names of the beliefs from Pr (principle), PC (policy core) and S (secondary) to PC (policy core), ML (mid-level) and S (secondary) in that respective order.
+- Removal and isolation of the technical model

@@ -1,0 +1,545 @@
+{UTF-8}
+size of flood=
+	flood height*pulse if flood
+	~	m/km
+	~		|
+
+flood height=
+	10
+	~	m/km
+	~		|
+
+flood perception time=
+	0.5
+	~	Year
+	~	roughly 6 months
+	|
+
+Current Safety Standard= INTEG (
+	(Current Safety Standard*fractional difference)/planning horizon,
+		7)
+	~	m/km
+	~		|
+
+perceived current safety= INTEG (
+	informed opinion adjustment-loss of perceived safety by flooding,
+		length safety)
+	~	Dmnl
+	~		|
+
+planning horizon=
+	55
+	~	Year
+	~		|
+
+fractional difference=
+	(design safety standard-Current Safety Standard)/Current Safety Standard
+	~	1
+	~		|
+
+informed opinion adjustment=
+	(official current safety-perceived current safety)/adjustment time
+	~	1/Year
+	~		|
+
+Anticipated Flood Level= INTEG (
+	Anticipated Flood Level*(fractional change in anticipated flood level+effect of size of flood\
+		),
+		Current Safety Standard*0.98)
+	~	m/km
+	~		|
+
+pulse if flood=
+	PULSE(INITIAL TIME + 7, 0.019231)
+	~	1
+	~	PULSE IF gives a value of 1 for one week at year 30
+	|
+
+loss of perceived safety by flooding=
+	perceived current safety*flooding/flood perception time
+	~	1/Year
+	~		|
+
+designing rate=
+	MAX((((discrepancy in levee length - Designed Levees + expected obsolesence)*effect on renovation and construction
+	)/design time), 0)
+	~	km/Year
+	~		|
+
+effect of size of flood=
+	(MAX(size of flood-Anticipated Flood Level,0))/(Anticipated Flood Level*design time)
+	~	1/Year
+	~		|
+
+renovating rate=
+	Old Levees * renovation standard* effect on renovation and construction/renovation time
+	~	km/Year
+	~		|
+
+fractional change in anticipated flood level=
+	0.0035
+	~	1/Year
+	~	0.5 in 50 years
+	|
+
+design safety standard=
+	Anticipated Flood Level*1.08
+	~	m/km
+	~		|
+
+Safety OL= INTEG (
+	change in safety of standard levees-change in safety due to renovation-decrease in safety of old levees\
+		,
+		5)
+	~	m
+	~		|
+
+effect on renovation and construction= WITH LOOKUP (
+	perceived current safety,
+		([(0,0)-(10,10)],(0,5),(0.25,3.5),(0.5,2),(0.75,1.2),(0.85,0.9),(1,0.7),(1.25,0.35)\
+		,(1.5,0.2),(2,0.1),(4,0.1),(5,0.1) ))
+	~	Dmnl
+	~		|
+
+desired safety of existing levees=
+	length of levees*Current Safety Standard
+	~	m
+	~		|
+
+flooding=
+	(MAX((1-length safety) , (IF THEN ELSE( size of flood > average safety of old levees\
+		 , (1-official current safety) , 0))))*pulse if flood *100
+	~	1
+	~	% flooded
+	|
+
+safety owing to levee quality=
+	((Old Levees*average safety of old levees) + (Standard Levees*average safety of standard levees\
+		))/desired safety of existing levees
+	~	1
+	~		|
+
+official current safety=
+	MIN(length safety,safety owing to levee quality)
+	~	1
+	~		|
+
+length safety=
+	(desired current total safety - discrepancy in safety owing to levee length)/desired current total safety
+	~	Dmnl
+	~	Near to zero, very unsafe as very few levees. Near to 1, or 1, safe as 100% \
+		surrounded by levees
+		
+		Practically equivalent to ratio of length of levees/ minimum length of \
+		levees
+	|
+
+change in safety due to renovation=
+	average safety of old levees*renovating rate
+	~	m/Year
+	~		|
+
+expected obsolesence=
+	obsolesence rate*construction time
+	~	km
+	~		|
+
+additional safety from renovating=
+	renovating rate*Current Safety Standard*1.05
+	~	m/Year
+	~		|
+
+Safety SL= INTEG (
+	additional safety from constructing+additional safety from renovating-change in safety of standard levees\
+		,
+		7)
+	~	m
+	~		|
+
+discrepancy in safety owing to levee length=
+	discrepancy in levee length*Current Safety Standard
+	~	m
+	~		|
+
+additional safety from constructing=
+	constructing rate*design safety standard
+	~	m/Year
+	~		|
+
+decrease in safety of old levees=
+	average safety of old levees *obsolesence rate
+	~	m/Year
+	~		|
+
+average safety of old levees=
+	Safety OL/Old Levees
+	~	m/km
+	~		|
+
+average safety of standard levees=
+	Safety SL/Standard Levees
+	~	m/km
+	~		|
+
+Standard Levees= INTEG (
+	constructing rate+renovating rate-aging rate,
+		1)
+	~	km
+	~		|
+
+change in safety of standard levees=
+	average safety of standard levees * aging rate
+	~	m/Year
+	~		|
+
+constructing rate=
+	Designed Levees/construction time
+	~	km/Year
+	~		|
+
+design time=
+	2.5
+	~	Year
+	~		|
+
+Designed Levees= INTEG (
+	designing rate-constructing rate,
+		1)
+	~	km
+	~		|
+
+adjustment time=
+	30
+	~	Year
+	~		|
+
+discrepancy in levee length=
+	MAX(minimum length of levees-length of levees,0)
+	~	km
+	~		|
+
+desired current total safety=
+	minimum length of levees*Current Safety Standard
+	~	m
+	~		|
+
+Old Levees= INTEG (
+	aging rate-obsolesence rate-renovating rate,
+		4500)
+	~	km
+	~		|
+
+renovation standard=
+	0.2
+	~	Dmnl
+	~	20 % of Old Levees are under renovation at any one time. It takes \
+		'renovation time' to do this.
+	|
+
+renovation time=
+	3.5
+	~	Year
+	~		|
+
+aging rate=
+	Standard Levees/aging time
+	~	km/Year
+	~		|
+
+aging time=
+	20
+	~	Year
+	~		|
+
+construction time=
+	5
+	~	Year
+	~		|
+
+length of levees=
+	Standard Levees + Old Levees
+	~	km
+	~		|
+
+minimum length of levees=
+	12000
+	~	km
+	~		|
+
+obsolescence time=
+	25
+	~	Year
+	~		|
+
+obsolesence rate=
+	Old Levees/obsolescence time
+	~	km/Year
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 20
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.0078125
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|11||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|72,72,100,0
+10,1,Standard Levees,772,329,50,25,3,3,0,0,0,0,0,0
+10,2,Old Levees,1011,327,50,25,3,3,0,0,0,0,0,0
+1,3,5,2,4,0,0,22,0,0,0,-1--1--1,,1|(923,329)|
+1,4,5,1,100,0,0,22,0,0,0,-1--1--1,,1|(845,329)|
+11,5,652,877,329,8,10,34,3,0,0,1,0,0,0
+10,6,aging rate,877,350,37,11,40,3,0,0,-1,0,0,0
+12,7,48,1215,328,10,8,0,3,0,0,-1,0,0,0
+1,8,10,7,4,0,0,22,0,0,0,-1--1--1,,1|(1183,327)|
+1,9,10,2,100,0,0,22,0,0,0,-1--1--1,,1|(1103,327)|
+11,10,48,1154,327,8,10,34,3,0,0,1,0,0,0
+10,11,obsolesence rate,1154,357,46,20,40,3,0,0,-1,0,0,0
+10,12,construction time,515,421,66,20,8,3,0,0,0,0,0,0
+1,13,1,5,1,0,0,0,0,64,0,-1--1--1,,1|(846,310)|
+10,14,aging time,806,415,39,11,8,3,0,0,0,0,0,0
+1,15,14,6,1,0,0,0,0,64,0,-1--1--1,,1|(814,380)|
+10,16,obsolescence time,1078,417,50,20,8,3,0,0,0,0,0,0
+1,17,16,11,1,0,0,0,0,64,0,-1--1--1,,1|(1093,370)|
+1,18,2,10,1,0,0,0,0,64,0,-1--1--1,,1|(1086,308)|
+10,19,minimum length of levees,247,544,61,20,8,3,0,0,0,0,0,0
+10,20,length of levees,857,262,58,11,8,3,0,0,0,0,0,0
+1,21,1,20,1,0,0,0,0,64,0,-1--1--1,,1|(790,287)|
+1,22,2,20,1,0,0,0,0,64,0,-1--1--1,,1|(936,280)|
+1,23,19,37,1,0,0,0,0,64,0,-1--1--1,,1|(250,528)|
+1,24,26,1,4,0,0,22,0,0,0,-1--1--1,,1|(772,177)|
+1,25,26,2,100,0,0,22,0,0,0,-1--1--1,,1|(1011,177)|
+11,26,780,865,177,8,10,34,3,0,0,1,0,0,0
+10,27,renovating rate,865,198,56,11,40,3,0,0,-1,0,0,0
+1,28,2,27,0,0,0,0,0,64,0,-1--1--1,,1|(935,260)|
+10,29,renovation time,1016,125,58,11,8,3,0,0,0,0,0,0
+10,30,renovation standard,855,82,41,20,8,3,0,0,0,0,0,0
+1,31,30,26,0,0,0,0,0,64,0,-1--1--1,,1|(859,128)|
+1,32,29,26,0,0,0,0,0,64,0,-1--1--1,,1|(935,152)|
+10,33,Current Safety Standard,447,608,48,24,3,131,0,0,0,0,0,0
+10,34,desired current total safety,288,618,56,25,8,131,0,0,0,0,0,0
+1,35,19,34,1,0,0,0,0,64,0,-1--1--1,,1|(252,583)|
+1,36,33,34,1,0,0,0,0,64,0,-1--1--1,,1|(376,628)|
+10,37,discrepancy in levee length,237,471,55,20,8,3,0,0,0,0,0,0
+10,38,effect on renovation and construction,721,1068,77,20,8,3,0,0,0,0,0,0
+10,39,adjustment time,700,1232,60,11,8,3,0,0,0,0,0,0
+10,40,effect on renovation and construction,566,142,82,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,41,40,27,1,0,0,0,0,64,0,-1--1--1,,1|(765,144)|
+10,42,Designed Levees,496,325,44,26,3,131,0,0,0,0,0,0
+12,43,48,312,328,10,8,0,3,0,0,-1,0,0,0
+1,44,46,42,4,0,0,22,0,0,0,-1--1--1,,1|(416,329)|
+1,45,46,43,100,0,0,22,0,0,0,-1--1--1,,1|(345,329)|
+11,46,48,374,329,6,8,34,3,0,0,1,0,0,0
+10,47,designing rate,374,348,51,11,40,3,0,0,-1,0,0,0
+10,48,design time,166,420,43,11,8,3,0,0,0,0,0,0
+1,49,48,47,1,0,0,0,0,64,0,-1--1--1,,1|(233,369)|
+1,50,37,47,1,0,0,0,0,64,0,-1--1--1,,1|(309,425)|
+1,51,53,1,4,0,0,22,0,0,0,-1--1--1,,1|(679,327)|
+1,52,53,42,100,0,0,22,0,0,0,-1--1--1,,1|(582,327)|
+11,53,620,631,327,6,8,34,3,0,0,1,0,0,0
+10,54,constructing rate,631,355,46,20,40,3,0,0,-1,0,0,0
+1,55,12,54,1,0,0,0,0,64,0,-1--1--1,,1|(555,368)|
+1,56,40,46,1,0,0,0,0,64,0,-1--1--1,,1|(440,226)|
+10,57,design safety standard,493,815,49,20,8,3,0,0,0,0,0,0
+1,58,42,53,1,0,0,0,0,64,0,-1--1--1,,1|(566,306)|
+10,59,Safety SL,693,663,40,20,3,3,0,0,0,0,0,0
+12,60,48,519,663,10,8,0,3,0,0,-1,0,0,0
+1,61,63,59,4,0,0,22,0,0,0,-1--1--1,,1|(619,662)|
+1,62,63,60,100,0,0,22,0,0,0,-1--1--1,,1|(551,662)|
+11,63,48,579,662,6,8,34,3,0,0,1,0,0,0
+10,64,additional safety from constructing,579,692,67,22,40,131,0,0,-1,0,0,0
+1,65,54,63,1,0,0,0,0,64,0,-1--1--1,,1|(558,507)|
+1,66,57,64,1,0,0,0,0,64,0,-1--1--1,,1|(539,761)|
+1,67,69,76,4,0,0,22,0,0,0,-1--1--1,,1|(854,666)|
+1,68,69,59,100,0,0,22,0,0,0,-1--1--1,,1|(769,666)|
+11,69,988,812,666,6,8,34,3,0,0,1,0,0,0
+10,70,change in safety of standard levees,812,694,78,20,40,3,0,0,-1,0,0,0
+1,71,6,69,1,0,0,0,0,64,0,-1--1--1,,1|(893,512)|
+10,72,average safety of standard levees,738,547,65,20,8,3,0,0,0,0,0,0
+1,73,1,72,1,0,0,0,0,64,0,-1--1--1,,1|(731,438)|
+1,74,59,72,1,0,0,0,0,64,0,-1--1--1,,1|(676,605)|
+1,75,72,69,1,0,0,0,0,64,0,-1--1--1,,1|(762,613)|
+10,76,Safety OL,931,664,40,20,3,3,0,0,0,0,0,0
+12,77,48,1102,662,10,8,0,3,0,0,-1,0,0,0
+1,78,80,77,4,0,0,22,0,0,0,-1--1--1,,1|(1070,666)|
+1,79,80,76,100,0,0,22,0,0,0,-1--1--1,,1|(1003,666)|
+11,80,48,1042,666,6,8,34,3,0,0,1,0,0,0
+10,81,decrease in safety of old levees,1042,694,68,20,40,3,0,0,-1,0,0,0
+1,82,11,80,1,0,0,0,0,64,0,-1--1--1,,1|(1137,573)|
+10,83,average safety of old levees,973,545,65,20,8,3,0,0,0,0,0,0
+1,84,76,83,1,0,0,0,0,64,0,-1--1--1,,1|(927,590)|
+1,85,83,80,1,0,0,0,0,64,0,-1--1--1,,1|(989,612)|
+1,86,2,83,1,0,0,0,0,64,0,-1--1--1,,1|(976,439)|
+10,87,length of levees,166,637,42,23,8,130,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,88,87,37,1,0,0,0,0,64,0,-1--1--1,,1|(158,540)|
+10,89,safety owing to levee quality,723,974,58,29,8,131,0,0,0,0,0,0
+10,90,Old Levees,954,938,53,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+10,91,Standard Levees,513,943,40,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,92,90,89,0,0,0,0,0,64,0,-1--1--1,,1|(847,953)|
+1,93,91,89,0,0,0,0,0,64,0,-1--1--1,,1|(602,955)|
+10,94,discrepancy in safety owing to levee length,425,501,84,20,8,131,0,0,0,0,0,0
+1,95,33,94,1,0,0,0,0,64,0,-1--1--1,,1|(461,563)|
+1,96,37,94,1,0,0,0,0,64,0,-1--1--1,,1|(308,467)|
+12,97,48,675,819,10,8,0,3,0,0,-1,0,0,0
+1,98,100,59,4,0,0,22,0,0,0,-1--1--1,,1|(673,717)|
+1,99,100,97,100,0,0,22,0,0,0,-1--1--1,,1|(673,787)|
+11,100,48,673,757,8,6,33,3,0,0,4,0,0,0
+10,101,additional safety from renovating,743,757,62,20,40,3,0,0,-1,0,0,0
+10,102,renovating rate,828,862,45,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,103,102,101,1,0,0,0,0,64,0,-1--1--1,,1|(797,798)|
+1,104,42,47,1,0,0,0,0,64,0,-1--1--1,,1|(451,370)|
+10,105,expected obsolesence,1286,269,46,20,8,3,0,0,0,0,0,0
+1,106,10,105,1,0,0,0,0,64,0,-1--1--1,,1|(1194,292)|
+10,107,construction time,1396,329,52,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,108,107,105,1,0,0,0,0,64,0,-1--1--1,,1|(1372,295)|
+10,109,expected obsolesence,214,257,51,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,110,109,46,1,0,0,0,0,64,0,-1--1--1,,1|(315,276)|
+10,111,Current Safety Standard,688,869,61,23,8,130,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,112,111,101,1,0,0,0,0,64,0,-1--1--1,,1|(702,819)|
+12,113,48,919,819,10,8,0,3,0,0,-1,0,0,0
+1,114,116,113,4,0,0,22,0,0,0,-1--1--1,,1|(918,786)|
+1,115,116,76,100,0,0,22,0,0,0,-1--1--1,,1|(918,717)|
+11,116,48,918,756,8,6,33,3,0,0,4,0,0,0
+10,117,change in safety due to renovation,994,756,68,20,40,3,0,0,-1,0,0,0
+1,118,102,116,1,0,0,0,0,64,0,-1--1--1,,1|(860,796)|
+10,119,average safety of old levees,1013,856,70,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,120,119,117,1,0,0,0,0,64,0,-1--1--1,,1|(1028,807)|
+10,121,discrepancy in safety owing to levee length,213,1200,85,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+10,122,length safety,519,1195,63,19,8,131,0,0,0,0,0,0
+1,123,121,122,1,0,0,0,0,64,0,-1--1--1,,1|(364,1215)|
+10,124,desired current total safety,352,1133,62,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,125,124,122,0,0,0,0,0,64,0,-1--1--1,,1|(429,1162)|
+10,126,perceived current safety,754,1147,41,25,3,131,0,0,0,0,0,0
+1,127,39,180,1,0,0,0,0,64,0,-1--1--1,,1|(644,1190)|
+10,128,average safety of standard levees,516,991,70,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+10,129,average safety of old levees,966,979,70,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,130,128,89,0,0,0,0,0,64,0,-1--1--1,,1|(618,982)|
+1,131,129,89,0,0,0,0,0,64,0,-1--1--1,,1|(845,976)|
+10,132,desired safety of existing levees,271,717,63,20,8,3,0,0,0,0,0,0
+1,133,87,132,1,0,0,0,0,64,0,-1--1--1,,1|(186,671)|
+1,134,33,132,1,0,0,0,0,64,0,-1--1--1,,1|(376,679)|
+10,135,desired safety of existing levees,890,1018,68,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,136,135,89,0,0,0,0,0,64,0,-1--1--1,,1|(808,996)|
+10,137,official current safety,537,1059,66,23,8,131,0,0,0,0,0,0
+1,138,122,137,1,0,0,0,0,64,0,-1--1--1,,1|(489,1122)|
+1,139,89,137,1,0,0,0,0,64,0,-1--1--1,,1|(631,1028)|
+1,140,137,180,1,0,0,0,0,64,0,-1--1--1,,1|(590,1064)|
+1,141,126,38,1,0,0,0,0,64,0,-1--1--1,,1|(746,1111)|
+10,142,size of flood,1230,1037,47,11,8,3,0,0,0,0,0,0
+10,143,flooding,1150,1144,31,11,8,3,0,0,0,0,0,0
+1,144,142,143,1,0,0,0,0,64,0,-1--1--1,,1|(1213,1111)|
+1,145,129,143,1,0,0,0,0,64,0,-1--1--1,,1|(1146,1130)|
+1,146,137,143,1,0,0,0,0,64,0,-1--1--1,,1|(805,1042)|
+1,147,122,143,1,0,0,0,0,64,0,-1--1--1,,1|(865,1271)|
+10,148,Anticipated Flood Level,352,893,48,29,3,131,0,0,0,0,0,0
+10,149,fractional change in anticipated flood level,335,806,83,20,8,3,0,0,0,0,0,0
+1,150,149,148,1,0,0,0,0,64,0,-1--1--1,,1|(337,849)|
+1,151,148,57,1,0,0,0,0,64,0,-1--1--1,,1|(445,874)|
+10,152,pulse if flood,1184,941,49,11,8,3,0,0,0,0,0,0
+10,153,INITIAL TIME,1271,882,41,20,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,154,153,152,1,0,0,0,0,64,0,-1--1--1,,1|(1204,900)|
+10,155,Time,1466,852,31,11,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+10,156,INITIAL TIME,1466,852,41,20,8,2,1,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+1,157,152,142,1,0,0,0,0,64,0,-1--1--1,,1|(1192,998)|
+10,158,size of flood,228,1045,57,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|11||128-128-128
+10,159,effect of size of flood,177,947,60,20,8,3,0,0,0,0,0,0
+1,160,158,159,1,0,0,0,0,64,0,-1--1--1,,1|(196,1017)|
+1,161,159,148,1,0,0,0,0,64,0,-1--1--1,,1|(218,901)|
+1,162,148,159,1,0,0,0,0,64,0,-1--1--1,,1|(301,963)|
+1,163,33,148,0,0,0,0,0,64,1,-1--1--1,,1|(402,741)|
+10,164,planning horizon,170,827,32,20,8,3,0,0,0,0,0,0
+10,165,fractional difference,436,747,39,20,8,3,0,0,0,0,0,0
+1,166,33,165,1,0,0,0,0,64,0,-1--1--1,,1|(425,674)|
+1,167,57,165,0,0,0,0,0,64,0,-1--1--1,,1|(469,786)|
+1,168,165,33,1,0,0,0,0,64,0,-1--1--1,,1|(476,677)|
+1,169,164,33,1,0,0,0,0,64,0,-1--1--1,,1|(314,750)|
+12,170,0,143,759,73,25,8,135,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Setting Safety Standards
+12,171,0,1217,655,74,25,8,7,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Safety Quality Co-flow
+12,172,0,350,173,65,25,8,7,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Levee Aging Chain
+12,173,0,1317,973,64,12,8,7,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Flood Event
+12,174,0,103,591,43,25,8,4,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Enough Levees?
+12,175,0,760,916,45,25,8,7,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Enough Quality?
+12,176,0,441,1256,88,25,8,7,0,24,-1,0,0,0,-1--1--1,0-0-0,|14|B|0-0-0
+Official & Perceived Safety
+12,177,48,576,1139,10,8,0,3,0,0,-1,0,0,0
+1,178,180,126,4,0,0,22,0,0,0,-1--1--1,,1|(683,1143)|
+1,179,180,177,100,0,0,22,0,0,0,-1--1--1,,1|(613,1143)|
+11,180,48,647,1143,6,8,34,3,0,0,1,0,0,0
+10,181,informed opinion adjustment,647,1171,65,20,40,3,0,0,-1,0,0,0
+1,182,126,180,1,0,0,0,0,64,0,-1--1--1,,1|(685,1109)|
+12,183,48,966,1150,10,8,0,3,0,0,-1,0,0,0
+1,184,186,183,4,0,0,22,0,0,0,-1--1--1,,1|(920,1148)|
+1,185,186,126,100,0,0,22,0,0,0,-1--1--1,,1|(833,1148)|
+11,186,48,878,1148,6,8,34,3,0,0,1,0,0,0
+10,187,loss of perceived safety by flooding,878,1176,68,20,40,3,0,0,-1,0,0,0
+1,188,143,187,1,0,0,0,0,64,0,-1--1--1,,1|(1023,1176)|
+1,189,126,187,1,0,0,0,0,64,0,-1--1--1,,1|(827,1101)|
+1,190,122,126,0,0,0,0,0,64,1,-1--1--1,,1|(640,1170)|
+1,191,152,143,1,0,0,0,0,64,0,-1--1--1,,1|(1147,1027)|
+1,192,48,159,1,0,0,0,0,64,0,-1--1--1,,1|(38,633)|
+12,193,0,1501,512,281,78,8,7,0,8,-1,0,0,0,-1--1--1,0-0-0,|14||0-0-0
+Can also have a capacity sub-sector to explicitly include institutional constraints or can just include a constraining multipler on effect on renovation and construction. Then assume sufficient design capacity. Safety assessment capacity limitations could be included by reducing official current safety
+12,194,0,1554,770,223,52,8,7,0,8,-1,0,0,0,-1--1--1,0-0-0,|14||0-0-0
+Different countries make different choices regarding current and design safety standards even under the same Anticipated Flood Level. They also do not automatically renovate.
+10,195,flood perception time,841,1240,61,18,8,131,0,0,-1,0,0,0
+1,196,195,187,0,0,0,0,0,64,0,-1--1--1,,1|(855,1215)|
+10,197,flood height,1294,1101,45,11,8,3,0,0,0,0,0,0
+1,198,197,142,1,0,0,0,0,64,0,-1--1--1,,1|(1266,1078)|
+///---\\\
+:L<%^E!@
+9:Current
+22:$,Dollar,Dollars,$s
+22:Hour,Hours
+22:Month,Months
+22:Person,People,Persons
+22:Unit,Units
+22:Week,Weeks
+22:Year,Years
+22:Day,Days
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:2,
+34:0,
+4:Time
+5:discrepancy in levee length
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:0
+41:0
+42:0
+24:0
+25:20
+26:20

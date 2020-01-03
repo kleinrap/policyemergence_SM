@@ -1,0 +1,14 @@
+Major tasks that would need to be performed:
+- Add the fact that the external parties have selective states interest - this has very very large ramification throughout the entire code and cannot be implemented in steps without robust safeguards.
+- Address the decrease in partial knowledge of all agents when participating in teams or coalitions are the partial knowledge is only transmitted between agents interacting leading to a small exchange of knowledge for all of the members.
+- Find how to calculate the appropriate belonging level for agents which are in teams.
+- Address the issue of initialisation of the policy hierarchy partial beliefs (3S). This has an major impact on the conflict level calculations.
+	For the initialisation, how about relating that to the original awareness? More awareness would lead to better partial knowledge.
+- Address the fact that for the conflict level of the shadow network of the teams, the full knowledge is used to constitute the conflict level which puts the teams at an advantage in their actions compared to individuals. (This is related to an assumption on the partial knowledge of teams)
+	To solve this, select closest partial knowledge from all members to calculate conflict level. For coalitions, select randomly one of five closest. Add parameter for the randomness on partial knowledge acquisition.
+	Awareness decay should be stopped when coalitions and teams perform inter and intra- actions. This applies to all members.
+
+Research Questions:
+- What is the real difference between coalitions and teams regarding partial knowledge sharing?
+
+To do to make the model pluggable:

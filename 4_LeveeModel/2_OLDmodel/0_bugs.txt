@@ -1,0 +1,4 @@
+This list contains all the persistent bugs found:
+
+13 May:
+- 

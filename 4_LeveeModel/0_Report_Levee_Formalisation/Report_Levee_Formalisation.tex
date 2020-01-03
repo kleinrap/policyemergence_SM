@@ -1,0 +1,305 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{setspace}
+%\doublespacing
+
+\renewcommand*{\sectionautorefname}{Section} 
+
+\title{Levee model \\ Hybridisation} 
+\author{Raphael Klein, EPFL}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[labelfont=bf]{caption} 	% Make captions bold (Figure & Table)
+\usepackage{subfig}	
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage[section]{placeins}
+
+\providecommand{\keywords}[1]{\textbf{Keywords:} #1}
+
+\begin{document}
+
+\maketitle
+
+%\textcolor{red.green.blue.cyan.yellow.magenta.}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The problem tree}
+\label{sec:interfaceProblemTree}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Overall, the problem tree is given as follows:
+
+\begin{itemize}
+
+\item Policy core problems:
+	\begin{enumerate}
+	
+	\item Investment priority  
+	
+	\item Safety
+	
+	\end{enumerate}
+	
+\item Secondary problems:
+	\begin{enumerate}
+	
+	\item Standard levee safety
+	
+	\item Old levee safety
+	
+	\item Standard levee length
+	
+	\item Old levee length
+		
+	\end{enumerate}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The policy packages}
+\label{sec:interfaceInstruments}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The exogenous parameters are given the following names, they are used in the four main policy packages:
+
+\begin{enumerate}
+\item Ageing time (AT)
+\item Obsolescence time (OT)
+\item Design time (DT)
+\item Flood perception time (FPT)
+\item Effects on renovation and construction (ERC)
+\item Renovation time (RT)
+\item Adjustment time (AdT)
+\item Planning horizon (PH)
+\item Renovation standard (RT)
+\item Construction time (CT)
+\end{enumerate}
+
+The policy packages within the policy tree are implemented using incremental increases and decreases in the following exogenous parameters.
+
+\begin{enumerate}
+\item Expertise
+	\begin{itemize}
+	\item Adjustment time
+	\item Obsolescence time
+	\item Design time
+	\end{itemize}
+	
+\item Public perception
+	\begin{itemize}
+	\item Flood perception time [-0.06/0.06]
+	\item Effects on renovation and construction [0.06/-0.06]
+	\end{itemize}
+	
+\item Resource allocation
+	\begin{itemize}
+	\item Adjustment time [0.06/-0.06]
+	\item Obsolescence time [0.06/-0.06]
+	\item Design time [-0.06/0.06]
+	\item Renovation time [-0.06/0.06]
+	\item Adjustment time [-0.06/0.06]
+	\end{itemize}
+	
+\item Investment level
+	\begin{itemize}
+	\item Planning horizon [0.06/-0.06]
+	\item Renovation standard [0.06/-0.06]
+	\item Construction time [-0.06/0.06]
+	\end{itemize}
+
+\end{enumerate}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c| c|c|c|c|}
+ \hline
+
+Policy p.		& AT		& OT		& DT		& FPT	& ERC	& RT		& AdT	& PH	 	& RT		& CT		\\ \hline \hline
+Exp. 1		&+0.06	&+0.06	& -0.06	&		& 		& 		& 		& 		&		&		\\ \hline
+Exp. 2		&-0.06	&-0.06	&+0.06	&		&		&		&		&		&		&		\\ \hline
+P.P. 1		&		&		&		&-0.06	&+0.06	&		&		&		&		&		\\ \hline
+P.P. 2		&		&		&		&+0.06	&-0.06	&		&		&		&		&		\\ \hline
+R.A. 1		&+0.06	&+0.06	&-0.06	&		&		&-0.06	&-0.06	&		&		&		\\ \hline
+R.A. 2		&-0.06	&-0.06	&+0.06	&		&		&+0.06	&+0.06	&		&		&		\\ \hline
+I.L. 1			&		&		&		&		&		&		&		&+0.06	&+0.06	&-0.06	\\ \hline
+I.L. 2			&		&		&		&		&		&		&		&-0.06	&-0.06	&+0.06	\\ \hline
+\end{tabular}
+\end{center}
+\caption{Policy package changes in the exogenous parameters}
+\label{tab:policyPackages}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The steps for model integration}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textcolor{red}{Not up to date.}
+
+This section presents the steps that are needed to connect a policy context model, in this case the predation model, to the policy process model.
+
+\begin{enumerate}
+\item Before any coding, define what the belief tree and the policy instruments will be for the predation model.
+\item Copy the policy emergence model files into the same folder.
+\item In \texttt{runbatch.py}, replace the policy context items by the predation model.
+\item In \texttt{runbatch.py}, make sure to initialise the predation model appropriately.
+\item Change the \texttt{input goalProfiles} files to have the appropriate belief tree structure of the predation model.
+\item In \texttt{model module interface.py}, construct the belief tree and the policy instrument array.
+\item Make sure that the step function in the \texttt{model predation.py} returns the KPIs that will fit in the belief system in the order DC, PC and S. If no DC is considered, then include one value of 0 at least. All KPIs need to be normalised.
+\item Modify the step function of the \texttt{model predation.py} to include a policy implemented.
+\item Introduce the changes that a policy implemented would have on the model in \texttt{model predation.py}.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The steps for model simulation}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textcolor{red}{Not up to date.}
+
+This section presents the steps that are needed to connect a policy context model, in this case the predation model, to the policy process model.
+
+\begin{enumerate}
+\item For the policy process:
+	\begin{enumerate}
+	\item Define a set of hypotheses to be tested
+	\item Define scenarios that will be needed to assess the hypotheses
+	\item Choose the agent distribution based on the scenarios constructed
+	\item Set the preferred states for the active agents and the electorate along with the causal beliefs to be used. This should all be based on the scenarios that have been constructed.
+	\end{enumerate}
+
+\item For the predation model:
+	\begin{enumerate}
+	\item Define the initial values for the main parameters
+	\item Define the parameters that will be recorded
+	\end{enumerate}
+\item Save the right data from the model.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model hypotheses}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+One hypothesis is made for testing the policy process model. They are given as follows:
+
+\begin{itemize}
+\item H1: A difference in the policy core goals will lead to a difference in the policy instruments selected.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model scenarios}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Six scenario are considered. All but one focus on a change in the preferred states of the agents or their causal beliefs. For each of the scenario, the preferred states of the agents are shown in \autoref{tab:preferredStates} and their causal relations are provided in \autoref{tab:causalBeliefs}.
+
+% IP: [0, 15]
+% Safety: [0, 1]
+% SLS: [0, 80 000]
+% OLS: [0, 80 000]
+% SLL: [0, 12 000]
+% OLL: [0, 1200]
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c| } 
+\hline
+
+			& PC1	& PC2	& S1		& S2		& S3		& S4  	\\ 
+			& IP		& Safety	& SLS	& OLS	& SLL	& OLL 	\\ \hline
+			
+\multicolumn{7}{|c|}{Scenario 0}										\\ \hline
+Policy makers	& 12		& 0.85 	& 60 000 	& 60 000	& 10 560	& 10 560	\\ \hline
+			& 0.80	& 0.85	& 0.75	& 0.75	& 0.88	& 0.88	\\ \hline
+			
+\multicolumn{7}{|c|}{Scenario 1}										\\ \hline
+Policy makers	& 6		& 0.95	& 60 000	& 10 000	& 12 000	& 500 	\\ \hline
+			& 0.40	& 0.95	& 0.75	& 0.13	& 1.00	& 0.04	\\ \hline
+			
+\end{tabular}
+\end{center}
+\caption{Preferred states for the policy makers on a the interval [0,1].}
+\label{tab:preferredStates}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|}
+ \hline
+\multicolumn{3}{|c|}{Scenario 0/1}	\\ \hline \hline
+	& PC1	& PC2	\\ \hline
+-S1 	& 0.00	& 0.50	\\ \hline
+-S2 	& 0.00	& 0.50	\\ \hline
+-S3 	& 0.75	& 0.00	\\ \hline
+-S4 	&-0.75	& 0.00	\\ 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Causal beliefs for the policy makers. These causal relations can be read as: an increase of 1 in S2 will lead to a decrease of 0.75 in PC3. They are all given on the interval [-1,1].}
+\label{tab:causalBeliefs}
+\end{table}
+
+\begin{itemize}
+\item Scenario 0 - Investment prone agents
+
+Scenario 0 is a scenario where the policy makers care more about the investment priority than safety. It is a simulation of the levee model with the policy emergence model. The preferred states for the agents are provided in \autoref{tab:preferredStates}. The causal beliefs used as given in \autoref{tab:causalBeliefs}.
+
+\item Scenario 1 - Safety prone agents
+
+Scenario 1 is a scenario where the policy makers care more about the safety than investment priority. It is a simulation of the levee model with the policy emergence model. The preferred states for the agents are provided in \autoref{tab:preferredStates}. The causal beliefs used as given in \autoref{tab:causalBeliefs}.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Initialisation of the levee model}
+\label{sec:levee_initialisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The parameters that need to be initialised for the levee model are given by:
+
+\begin{enumerate}
+\item Ageing time (AT): 20
+\item Obsolescence time (OT): 25
+\item Design time (DT): 2.5
+\item Flood perception time (FPT): 0.5
+\item Effects on renovation and construction (ERC): lookup
+\item Renovation time (RT): 3.5
+\item Adjustment time (AdT): 30
+\item Planning horizon (PH): 55
+\item Renovation standard (RT): 0.2
+\item Construction time (CT): 5
+\end{enumerate}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The results section is divided up into the different hypotheses that were brought up previously.
+
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=\linewidth]{figures/Predation_SM_Comparisons_Scenarios.eps}
+%\caption{Comparison of the results from the predation model for all scenarios plus the predation model without policy emergence model.}
+%\label{fig:Predation_SM_Comparisons_Scenarios}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{apalike} 
+\bibliography{references}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
