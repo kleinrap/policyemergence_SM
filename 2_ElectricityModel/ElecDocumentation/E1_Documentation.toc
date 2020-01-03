@@ -66,9 +66,9 @@
 \contentsline {paragraph}{Preference calculation - policy core and secondary issues}{34}{section*.39}
 \contentsline {paragraph}{Agenda selection}{34}{section*.40}
 \contentsline {paragraph}{Policy instruments}{34}{section*.41}
-\contentsline {subsection}{\numberline {3.2.5}Preference calculation - policy instruments}{35}{subsection.3.2.5}
-\contentsline {paragraph}{Policy instrument selection and implementation}{35}{section*.42}
-\contentsline {paragraph}{Electorate passive action on policy makers}{35}{section*.43}
+\contentsline {paragraph}{Preference calculation - policy instruments}{35}{section*.42}
+\contentsline {paragraph}{Policy instrument selection and implementation}{35}{section*.43}
+\contentsline {paragraph}{Electorate passive action on policy makers}{35}{section*.44}
 \contentsline {section}{\numberline {3.3}The hybrid model}{36}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}KPI calculations}{36}{subsection.3.3.1}
 \contentsline {chapter}{\numberline {4}Code documentation}{39}{chapter.4}
@@ -114,10 +114,10 @@
 \contentsline {subsection}{\numberline {8.2.2}Growth demand}{65}{subsection.8.2.2}
 \contentsline {section}{\numberline {8.3}The initialisation of the model}{66}{section.8.3}
 \contentsline {subsection}{\numberline {8.3.1}The policy process model}{66}{subsection.8.3.1}
-\contentsline {paragraph}{The affiliations}{66}{section*.45}
-\contentsline {paragraph}{The actor distribution}{66}{section*.46}
-\contentsline {paragraph}{The actor preferred states}{66}{section*.47}
-\contentsline {paragraph}{The hybrid model duration}{67}{section*.50}
+\contentsline {paragraph}{The affiliations}{66}{section*.46}
+\contentsline {paragraph}{The actor distribution}{66}{section*.47}
+\contentsline {paragraph}{The actor preferred states}{66}{section*.48}
+\contentsline {paragraph}{The hybrid model duration}{67}{section*.51}
 \contentsline {chapter}{\numberline {9}Model initialisation}{69}{chapter.9}
 \contentsline {chapter}{\numberline {10}Results}{71}{chapter.10}
 \contentsline {chapter}{\numberline {11}Conclusions}{73}{chapter.11}

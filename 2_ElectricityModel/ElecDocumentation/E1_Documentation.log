@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.5)  18 NOV 2019 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.5)  3 JAN 2020 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -758,7 +758,7 @@ r-form ac-tions and in-ter-ac-tions, agents
  []
 
 [21]) (./Modelling_Hybrid.tex
-<figures/ModuleInterface-09.png, id=614, 474.0912pt x 177.5433pt>
+<figures/ModuleInterface-09.png, id=609, 474.0912pt x 177.5433pt>
 File: figures/ModuleInterface-09.png Graphic file (type png)
 
 <use figures/ModuleInterface-09.png>
@@ -779,7 +779,7 @@ Overfull \hbox (1.22328pt too wide) in paragraph at lines 71--72
 ep-re-sented as a 3-tuple \OT1/cmtt/m/n/10.95 (prob[]as, prob[]pf, pol[]pf)
  []
 
-[31] <figures/Formalisation-04.png, id=715, 533.3526pt x 172.0026pt>
+[31] <figures/Formalisation-04.png, id=709, 533.3526pt x 172.0026pt>
 File: figures/Formalisation-04.png Graphic file (type png)
 
 <use figures/Formalisation-04.png>
@@ -860,6 +860,19 @@ Chapter 8.
 (./Experiments.tex [63
 
 ]
+
+LaTeX Warning: Reference `tab:preferredStates_Elec_S1' on page 64 undefined on 
+input line 42.
+
+
+LaTeX Warning: Reference `tab:preferredStates_Elec_S2' on page 64 undefined on 
+input line 43.
+
+
+LaTeX Warning: Reference `tab:preferredStates_Elec_S3' on page 64 undefined on 
+input line 44.
+
+
 Overfull \hbox (75.69373pt too wide) in paragraph at lines 63--74
  [] 
  []
@@ -894,7 +907,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
 Package rerunfilecheck Info: File `E1_Documentation.out' has not changed.
-(rerunfilecheck)             Checksum: 670F489D8CA0B6F41BC86704B1B33E0B;5860.
+(rerunfilecheck)             Checksum: 5A0EA69E9A12203631AAF2249D07BF27;5763.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -902,47 +918,32 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
  ) 
 Here is how much of TeX's memory you used:
- 8368 strings out of 492995
- 123937 string characters out of 6132705
- 231686 words of memory out of 5000000
- 11415 multiletter control sequences out of 15000+600000
+ 8362 strings out of 492995
+ 123834 string characters out of 6132705
+ 231302 words of memory out of 5000000
+ 11414 multiletter control sequences out of 15000+600000
  11788 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,10n,39p,1336b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{table.caption.52} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.51} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.47} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.46} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.45} has been referenced but does not 
-exist, replaced by a fixed one
-
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on E1_Documentation.pdf (79 pages, 407518 bytes).
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texli
+ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on E1_Documentation.pdf (79 pages, 406474 bytes).
 PDF statistics:
- 1144 PDF objects out of 1200 (max. 8388607)
- 1034 compressed objects within 11 object streams
- 328 named destinations out of 1000 (max. 500000)
- 691 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1130 PDF objects out of 1200 (max. 8388607)
+ 1020 compressed objects within 11 object streams
+ 323 named destinations out of 1000 (max. 500000)
+ 683 words of extra memory for PDF output out of 10000 (max. 10000000)
 
