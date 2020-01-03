@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.5)  8 FEB 2019 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.5)  3 JAN 2020 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**FormalisationSchelling_SM.tex
-(./FormalisationSchelling_SM.tex
+**Formalisation_SM.tex
+(./Formalisation_SM.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -628,7 +628,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-(./FormalisationSchelling_SM.aux
+(./Formalisation_SM.aux
 
 LaTeX Warning: Label `ssec:' multiply defined.
 
@@ -648,7 +648,7 @@ LaTeX Warning: Label `sssec:' multiply defined.
 LaTeX Warning: Label `eq:impactPFChangeProblem' multiply defined.
 
 )
-\openout1 = `FormalisationSchelling_SM.aux'.
+\openout1 = `Formalisation_SM.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -709,19 +709,19 @@ LaTeX Info: Redefining \ref on input line 25.
 LaTeX Info: Redefining \pageref on input line 25.
 LaTeX Info: Redefining \nameref on input line 25.
 
-(./FormalisationSchelling_SM.out) (./FormalisationSchelling_SM.out)
+(./Formalisation_SM.out) (./Formalisation_SM.out)
 \@outlinefile=\write3
-\openout3 = `FormalisationSchelling_SM.out'.
+\openout3 = `Formalisation_SM.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-
-(./FormalisationSchelling_SM.toc)
+ (./Formalisation_SM.toc)
 \tf@toc=\write4
-\openout4 = `FormalisationSchelling_SM.toc'.
+\openout4 = `Formalisation_SM.toc'.
 
- [1
+
+[1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (23.7937pt too wide) in paragraph at lines 55--63
@@ -756,16 +756,15 @@ File: figures/TreePolicy-01.png Graphic file (type png)
 Package pdftex.def Info: figures/TreePolicy-01.png used on input line 169.
 (pdftex.def)             Requested size: 360.0pt x 148.04918pt.
  [6] [7 <./figures/TreePolicy-01.png (PNG copy)>] [8] [9] [10] [11] [12] [13] [
-14] [15] [16] [17]
-(./FormalisationSchelling_SM.bbl)
+14] [15] [16] [17] (./Formalisation_SM.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
- [18]
+
+[18]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
- (./FormalisationSchelling_SM.aux)
+ (./Formalisation_SM.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
-Package rerunfilecheck Info: File `FormalisationSchelling_SM.out' has not chang
-ed.
+Package rerunfilecheck Info: File `Formalisation_SM.out' has not changed.
 (rerunfilecheck)             Checksum: D7C916C177F10EDC491177D2B4C9A355;940.
 
 
@@ -777,13 +776,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
  ) 
 Here is how much of TeX's memory you used:
- 7902 strings out of 492995
- 116961 string characters out of 6132705
- 215171 words of memory out of 5000000
- 11262 multiletter control sequences out of 15000+600000
+ 7903 strings out of 492995
+ 116826 string characters out of 6132705
+ 215148 words of memory out of 5000000
+ 11263 multiletter control sequences out of 15000+600000
  10223 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,17n,39p,1051b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,17n,39p,1042b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -798,7 +797,7 @@ live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FormalisationSchelling_SM.pdf (18 pages, 368126 bytes).
+Output written on Formalisation_SM.pdf (18 pages, 366973 bytes).
 PDF statistics:
  311 PDF objects out of 1000 (max. 8388607)
  272 compressed objects within 3 object streams
