@@ -34,7 +34,7 @@
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Model Conceptualisation}
+\section{Model conceptualisation}
 
 The policy process model is specified according to the four key elements that were outlined in the literature: time, policy arena, agents and interactions. The main choice that is left to the modeller is to decide how much complexity needs to be integrated to each of these elements to answer the research question. In the present case, only a limited amount of complexity is required. This leads to a relatively simple policymaking process model. It is detailed below.
 
@@ -112,22 +112,21 @@ There are two main categories of agents in the model: the active agents that hav
 %%%%%%
 \paragraph{Active agents}
 
-The active agents are the policy makers and the policy entrepreneurs. Their attributes are given as follows:
+The active agents are the policy makers. Their attributes are given as follows:
 
 \begin{enumerate}
 
-\item The \emph{active agent} is represented as an 5-tuple given by \texttt{agent = (ID, type, beliefHierarchy, affiliation, advocacy)} where
+\item The \emph{active agent} is represented as an 4-tuple given by \texttt{agent = (ID, type, beliefHierarchy, advocacy)} where
 \texttt{ID} is the agent unique ID,
 \texttt{type} is the agent type, 
 \texttt{beliefHierarchy} is the agent's personalised belief hierarchy, 
-\texttt{affiliation} is the political entity the agent identifies with,  
 \texttt{advocacy} is the list of the issues the agent is supporting.
 
-\item A \emph{type} corresponds to a choice of agent. This can either be a policy maker or a policy entrepreneur.
+\item A \emph{type} corresponds the agent type: in this case it can only be a policy maker. This will go on to define the actions possible for the agent.
 
 \item The \emph{belief hierarchy} is made of the agent's own belief hierarchy structure and associated values.
 
-\item The \emph{advocacy} is represented as a 3-tuple \texttt{(prob\_as, prob\_pf, pol\_pf)} where \texttt{prob\_pf} is the problem chosen by the agent during the agenda setting step, similarly for the \texttt{prob\_pf}. \texttt{pol\_pf} is the policy instrument selected the policy formulation step.
+\item The \emph{advocacy} is represented as a 2-tuple \texttt{(issue\_as, issue\_pf)} where \texttt{policy\_pf} is the issue chosen by the agent during the agenda setting step, while the \texttt{policy\_pf} is the policy instrument selected by the agent in the policy formulation step.
 
 \end{enumerate}
 
@@ -140,7 +139,7 @@ The passive agents are the truth agent and the electorate.
 
 \emph{The truth agent:} The truth agent is an agent included only for programming purposes. This agent provides a link between the environment and the policy agents. It is communicated all the states in the environment and uses them to inform the actual beliefs of the active agents. The only attribute of the truth agent is the belief hierarchy composed only of actual beliefs for each of the issues.
 
-\emph{The electorate: } The electorate represents the different constituencies. There are as many electorate agents as there are political affiliations. The role of the electorate is to influence the policy makers in their aims. The following defines the attributes of the electorate:
+\emph{The electorate:} The electorate represents the different constituencies. There are as many electorate agents as there are political affiliations. The role of the electorate is to influence the policy makers in their aims. The following defines the attributes of the electorate:
 
 The \emph{electorate} can be given as a 3-tuple written as: \texttt{electorate = (ID, affiliation, beliefHierarchy)} where \texttt{ID} is the unique name of the electorate, \texttt{affiliation} is its associated affiliation and \texttt{beliefHierarchy} is the associated belief hierarchy of the electorate.  The belief hierarchy of the electorate is similar in structure to the one of the truth agent.
 
