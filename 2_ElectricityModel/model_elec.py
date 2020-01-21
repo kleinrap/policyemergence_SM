@@ -218,8 +218,8 @@ class Electricity(Model):
 		self.t_outage = 67 # int - [hrs] - maintenance time for outage
 		self.outage_prob = 0.04/67 # float - probability for an outage
 
-		self.elec_price = 0 # float - [CHF] - electricity price initialisation
-		self.elec_price_cum = 0 # float - [CHF] - cumulative electricity price over a year (for averaging)
+		self.elec_price = 0 # float - [CHF/MWh] - electricity price initialisation
+		self.elec_price_cum = 0 # float - [CHF/MWh] - cumulative electricity price over a year (for averaging)
 		self.hurdle_rate = 0.1 # float - [-] - hurdle rate for investors investments
 		self.discount_rate = 0.08 # float - [-] - discount rate for investors investments
 		self.risk_rate = 0.01 # float - [-] - risk rate for investors investments

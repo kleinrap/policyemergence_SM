@@ -1,0 +1,615 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{setspace}
+%\doublespacing
+
+\renewcommand*{\sectionautorefname}{Section} 
+
+\title{Electricity model\\ Hybridisation\_A} 
+\author{Raphael Klein}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[labelfont=bf]{caption} 	% Make captions bold (Figure & Table)
+\usepackage{subfig}	
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage[section]{placeins}
+
+\providecommand{\keywords}[1]{\textbf{Keywords:} #1}
+
+\begin{document}
+
+\maketitle
+
+%\textcolor{red.green.blue.cyan.yellow.magenta.}{}
+
+%\newpage
+
+% structure of the report
+% Introduction
+% Modelling
+%	Electricity model
+%	Policy emergence model (SM)
+%	Hybrid model
+% Implementation
+%	Electricity model
+%	Policy emergence model (SM)
+%	Hybrid model
+% Code documentation
+%	Electricity model
+% 	Policy emergence model (SM)
+%	Hybrid model
+% Verification
+%	Electricity model
+% 	Policy emergence model (SM)
+%	Hybrid model
+% Inputs
+%	Electricity model
+%	Policy emergence model (SM)
+%	Hybrid model
+% Experimentation - Scenario design
+% Model initialisation
+%	Electricity model
+% 	Policy emergence model (SM)
+%	Hybrid model
+% Model results 
+% Conclusions
+
+
+
+This reports the hybridisation of the electricity model with the simplest implementation of the policy model. It outlines how the models were hybridised and goes through the initialisation of the models and the experiments that will be run using these models.
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The problem tree}
+\label{sec:interfaceProblemTree}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+To couple the models, the agents in the policy process need to be provided with a problem tree. This problem tree is specific to the electricity market model as it is informed by the key performance indicators from that model. This was highlighted in the previous section. Beyond this, the problems selected are also informed from previous work done by \cite{markard2016socio}. They identified a number of problems (they call these beliefs in their publication) that are specific to the Swiss context. These are however limited to the deep core and policy core levels. Secondary problems are not included or researched and are therefore taken from the model only.
+
+The difficulty in the creation of the problem tree is to associate the right indicators to the right problems. The first step is to not consider the deep core problems. These are considered to be normative problems. They are beyond the boundaries of the model, out of the scope. They are not a crucial aspect of the process as it is focused on policy core problems so it does not make a big difference if deep core problems are considered or not. The next step is to consider the secondary problems. These can be found directly within the model. They are indicators that are made into secondary problems. Not all indicators are considered, only a few are selected. These are considered to be the important ones for the agents in the policy process. Finally, there is the selection of the policy core problems. These are, in general, aggregates of the secondary problems. They are calculated as a function of the main model indicators.
+
+For the policy core problems, there is an additional aspect that needs to be considered. In work performed by \citeauthor{markard2016socio}, policy core problems within the Swiss electricity market subsystem were identified. These are: seriousness of the problem, role of the state, environment, economy and society. Several of these cannot be obtained from the model as they are outside of the boundaries of the model. However, the environment and economy can be considered. They are therefore selected as the policy core problems. \cite{markard2016socio} also identified four secondary problems. They are however not suitable for the model as they are more questions than problems. Furthermore, four secondary problems is not sufficient. It is for this reason that the secondary problems are only selected from the model. Ultimately, the policy core problems are calculated using linear equations that include a number of the indicators used for the secondary problems.
+
+Overall, the problem tree is given as follows:
+
+\begin{itemize}
+\item Policy core problems:
+	\begin{itemize}
+	\item Economy
+	\item Environment
+	\end{itemize}
+\item Secondary problems:
+	\begin{itemize}
+	\item Renewable energy production
+	\item Electricity prices
+	\item Renewable energy investments
+	\item Domestic level emissions
+	\item Imported emissions
+	\end{itemize}
+\end{itemize}
+
+The economy takes into account elements related to profits of firms along with the security of supply of the country. The environment takes into account aspects such as the emissions, the amount of renewable energy and the amount of imported emissions.
+
+
+
+
+\subsection{Implementation of the KPIs}
+
+The KPIs are calculated within the electricity model but they are only used for the hybrid model. There are five secondary indicators that are calculated and two policy core indicators. The secondary indicators are calculated directly from the data that is obtained from the model while the policy core indicators are calculated based on the secondary indicators. Each of the indicators are also normalised as they are to be used within the belief system of the actors within the policy process model. All indicators are calculated for data that is obtained for the year prior to the policy making round. The data considered does not include all of the years between negotiating rounds.
+
+The secondary indicators are the following: renewable energy production (S1), electricity prices (S2), renewable energy investment level (S3), domestic level emissions (S4) and imported emissions (S5).
+
+The renewable energy production (S1) indicator is calculated as follows. The total supply of electricity is given by: (note we only consider domestic production and no imports or exports)
+
+\begin{equation}
+S_{total} = S_{solar} + S_{CCGT} + S_{wind} + S_{nuclear} + S_{hydro} + S_{hydrop} + S_{waste} + S_{ROR}
+\end{equation}
+
+The renewable supply is given by:
+
+\begin{equation}
+S_{RES} = S_{solar} + S_{wind} S_{hydro} + S_{hydrop} S_{ROR}
+\end{equation}
+
+The indicator is then normalised using:
+\begin{equation}
+S1 = S_{RES}  / S_{total}
+\end{equation}
+
+The electricity prices (S2) indicator is calculated based on the average electric price of the previous year. It is then normalised using an expected maximum electricity price ($P_{elec, max}$). The normalisation equation is given by:
+
+\begin{equation}
+S2 = \frac{P_{elec}}{P_{elec, max}}
+\end{equation}
+
+$P_{elec, max}$ is selected to be equal to 150 but can be tuned depending on the outcome of simulation such that the values of S2 are always between 0 and 1.
+
+The renewable energy investment level (S3) indicator is calculated using the investment performed by all the investors in solar, wind and CCGT assets.
+
+\begin{equation}
+I_{total} = I_{wind} + I_{solar} + I_{CCGT}
+\end{equation}
+
+\begin{equation}
+I_{RES} = I_{wind} + I_{solar}
+\end{equation}
+
+The indicator is normalised using:
+
+\begin{equation}
+S3 = I_{RES} / I_{total}
+\end{equation}
+
+The domestic level emissions (S4) is calculated based on the CCGT emissions. The normalisation of this indicator is once again done using an assumed maximum for the emissions which is given as five times the emissions for year 1 of the simulation. This is an arbitrary value that can be tuned to make sure that the indicator is always between 0 and 1.
+
+\begin{equation}
+S4 = S_{CCGT} / S_{CCGT, max}
+\end{equation}
+
+The imported emissions (S5) indicator is calculated based on the imports and the policy mixes of the countries from which Switzerland imports. The policy mixes are scenarios that are obtained from technical report and goals for the different countries. For each country, the percentage of coal and gas production is considered to calculated the imported emissions.
+
+\begin{subequations}
+\begin{align}
+        E_{FR} & = (S_{FR, NTC} + S_{LTC}) \cdot (M_{FR, CCGT} \cdot E_{CCGT} + M_{FR, coal} \cdot E_{coal}) \\
+         E_{DE} & = Ss_{DE, NTC} \cdot (M_{DE, CCGT} \cdot E_{CCGT} + M_{DE, coal} \cdot E_{coal}) \\
+         E_{IT} & = S_{IT, NTC} \cdot (M_{IT, CCGT} \cdot E_{CCGT} + M_{IT, coal} \cdot E_{coal})
+         \end{align}
+\end{subequations}
+
+where $E$ are the emissions per type of technology and where $M$ is the share of the mix for a specific technology in the country.
+
+To normalise this indicator, we once again select a maximum amount of emissions. This is calculated as being 5\% higher than the initial imported emissions in year 1 of all these countries. Considering the emissions should decrease in the scenarios, this means that the indicator should remain within the $[0, 1]$ interval.
+
+\begin{equation}
+S5 = \frac{ E_{FR} + E_{DE} + E_{IT} }{ E_{total}}
+\end{equation}
+
+where $E_{total} = E_{FR, init} + E_{DE, init} + E_{IT, init}$
+
+
+The policy core issues are given as the economy (PC1) and the environment (PC2). They are calculated using weighted averages of a number of secondary indicators. The equations used can be tuned but the ones implemented are given below:
+
+\begin{equation}
+PC1 = \frac{3}{4} \cdot S2 + \frac{1}{4} \cdot S3
+\end{equation}
+
+\begin{equation}
+PC2 = \frac{1}{4} \cdot S1 + \frac{1}{4} \cdot S3 + \frac{1}{4} \cdot S4 + \frac{1}{4} \cdot S5
+\end{equation}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The policy instruments}
+\label{sec:interfaceInstruments}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The policy instruments within the policy tree are implemented using incremental increases and decreases in the following exogenous parameters.
+
+\begin{enumerate}
+\item Solar subsidies [+/- 0.04]
+\item Wind turbine permit times [+/- 0.04]
+\item Agent's hurdle rate  [+/- 0.02]
+\item Carbon tax on domestic fossil fuel [+/- 10]
+\item Carbon tax on fossil fuel imports [+/- 10]
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The steps for model integration}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section presents the steps that are needed to connect a policy context model, in this case the predation model, to the policy process model.
+
+\begin{enumerate}
+\item Before any coding, define what the belief tree and the policy instruments will be for the predation model.
+\item Copy the policy emergence model files into the same folder.
+\item In \texttt{runbatch.py}, replace the policy context items by the predation model.
+\item In \texttt{runbatch.py}, make sure to initialise the predation model appropriately.
+\item Change the \texttt{input goalProfiles} files to have the appropriate belief tree structure of the predation model.
+\item In \texttt{model module interface.py}, construct the belief tree and the policy instrument array.
+\item Make sure that the step function in the \texttt{model predation.py} returns the KPIs that will fit in the belief system in the order DC, PC and S. If no DC is considered, then include one value of 0 at least. All KPIs need to be normalised.
+\item Modify the step function of the \texttt{model predation.py} to include a policy implemented.
+\item Introduce the changes that a policy implemented would have on the model in \texttt{model predation.py}.
+\end{enumerate}
+
+%%%%%%%%%%%%
+\subsection{Code documentation}
+
+The following is the documentation for the hybrid model. This includes the script files that are needed to connect the policy context model (electricity model in the present case) with the policy emergence model.
+
+
+\paragraph{run\_batch.py}
+
+This script is used to simulate the entire hybrid model for different scenario. To this effect, it contains the inputs for all models. This includes the inputs for the hybrid model itself (number of steps, duration of steps, number of repetitions, number of scenarios, ...), the inputs for the policy context, and the inputs for the policy emergence model (actor distribution, actor belief profiles, ...)
+
+This is then followed by the for loop that simulate the hybrid model. This includes the simulation of a warm up round. Then the policy context is simulated n times for every policy process step simulation. Each feeds the other through indicators and policy selection. The results are all extracted using the data collector from each of the model. The files are saved within .csv files.
+
+\paragraph{model\_module\_interface.py}
+
+This script is used to connect the policy context to the policy emergence model. This part of the model will change every time a new policy context is considered. For this, two functions are considered:
+
+\begin{itemize}
+\item \texttt{belief\_tree\_input()}
+
+This function is used to define the agent issue tree. It includes the specification of the deep core, policy core and secondary issues.
+
+\item \texttt{policy\_instrument\_input()}
+
+This function is used to define the policy instruments that the agents can select.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The steps for model simulation}
+\label{sec:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section presents the steps that are needed to connect a policy context model, in this case the electricity model, to the policy process model.
+
+\begin{enumerate}
+\item For the policy process:
+	\begin{enumerate}
+	\item Define a set of hypotheses to be tested
+	\item Define scenarios that will be needed to assess the hypotheses
+	\item Choose the agent distribution based on the scenarios constructed
+	\item Set the preferred states for the active agents and the electorate along with the causal beliefs to be used. This should all be based on the scenarios that have been constructed.
+	\end{enumerate}
+
+\item For the predation model:
+	\begin{enumerate}
+	\item Define the initial values for the main parameters
+	\item Define the parameters that will be recorded
+	\end{enumerate}
+\item Save the right data from the model.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model verification}
+\label{sec:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The following is the verification for the policy process model.
+
+\begin{longtable}{|l|p{6cm}|c|c|}
+\hline
+\textbf{Functions} & \textbf{Issues} & \textbf{Verified}  \\
+\hline \hline
+\endfirsthead
+\multicolumn{3}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Functions} & \textbf{Issues} & \textbf{Verified}  \\
+\hline \hline
+\endhead
+\hline \multicolumn{3}{c}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|c|}{{\bfseries model\_SM.py}}	& Yes	\\ \hline
+get\_agents\_attributes 		& None		& Yes	\\ \hline
+get\_electorate\_attributes		& None		& Yes	\\ \hline
+get\_problem\_policy\_chosen	& None		& Yes	\\ \hline
+step						& None		& Yes	\\ \hline
+module\_interface\_input		& None		& Yes	\\ \hline
+agenda\_setting			& None		& Yes	\\ \hline
+policy\_formulation			& None 		& Yes	\\ \hline
+preference\_update			& None		& Yes	\\ \hline
+preference\_update\_DC		& None		& Yes	\\ \hline
+preference\_update\_PC		& None		& Yes	\\ \hline
+preference\_update\_S		& None		& Yes	\\ \hline
+electorate\_influence			& None		& Yes	\\ \hline
+
+\multicolumn{2}{|l|}{{\bfseries model\_SM\_agents.py}}
+									& Yes	\\ \hline
+selection\_PC				& None		& Yes	\\ \hline
+selection\_S				& None		& Yes	\\ \hline
+selection\_PI				& Was missing a check for the agenda - has been added
+									& Yes	\\ \hline
+electorate\_influence			& None		& Yes	\\ \hline
+
+\multicolumn{2}{|l|}{{\bfseries model\_SM\_agents\_initialisation.py}}
+									& Yes	\\ \hline
+issuetree\_creation			& None		& Yes	\\ \hline
+policytree\_creation			& None		& Yes	\\ \hline
+init\_active\_agents			& None		& Yes	\\ \hline
+init\_electorate\_agents		& None		& Yes	\\ \hline
+init\_electorate\_agents		& None		& Yes	\\ \hline
+init\_truth\_agent			& None		& Yes	\\ \hline
+						& None		& Yes	\\ \hline
+\multicolumn{2}{|l|}{{\bfseries model\_SM\_policyImpact.py}}
+									& Yes	\\ \hline
+model\_simulation			& None		& Yes	\\ \hline
+policy\_impact\_evaluation	& Some code simplification were performed
+									& Yes	\\ \hline
+%	&			&	\\ \hline
+	
+\end{longtable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model hypotheses}
+\label{sec:hypotheses}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Several hypotheses are made for testing the electricity model. They are given as follows:
+
+\begin{itemize}
+\item H1: An increasingly environmentally conscious electorate will lead to more indigenous renewable investments regardless of the speed electrification of the energy sector.
+\end{itemize}
+
+
+\emph{The hypotheses should relate to the impact of actors on the unfolding of the electricity model in a range of growth scenarios.}
+
+The current hypothesis would require a variation in the electorate rate of change (scenarios for the electorate), along with a variation in the demand growth scenarios.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model scenarios}
+\label{sec:steps}
+%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Scenarios are built to attempt to prove the hypothesis that has been outlined before. The hypothesis spans a number of parameters in both models that will need to be changed. This includes a variation in the electorate's goal evolution and a variation of the demand growth scenarios.
+
+%%%%%%%%%%%%
+\subsection{Electorate goal changes}
+
+There are three main options when looking at the changes of the preferred states of the electorates over time:
+
+\begin{itemize}
+\item Option 1: We can have some sort of benchmark test where both electorates start with the same preferred states.
+\item Option 2: We make three scenarios with one variation over time of the preferred states. Scenario 1 has the preferred states of all electorates change, scenario 2 would only see the preferred states of electorate 1 change and scenario 3 would see the same but for electorate 2.
+\item Option 3: The scenarios are based on the electorates' preferred states changing at different rates. This might include one electorate (economy) changing at a slower pace that the second electorate (environment)
+\end{itemize}
+
+I think we can assume that the environmental consciousness of the electorate is only going to grow over time or at least not decrease. Therefore we will select option 3 with three scenarios. These are provided below:
+
+\begin{itemize}
+\item S1: Affiliation 1 and 2 preferred states for environment grow quickly at same rate (see \autoref{tab:preferredStates_Elec_S1}).
+\item S2: Affiliation 1 preferred states for environment grows slowly while it grows fast for affiliation 2 (see \autoref{tab:preferredStates_Elec_S2}).
+\item S3: Affiliation 1 preferred states for environment stays constant while it grows fast for affiliation 2 (see \autoref{tab:preferredStates_Elec_S3}).
+\end{itemize}
+
+The changes in the preferred states happen twice within the model at regular intervals.
+
+As a reminder, the issues are: 
+
+\begin{itemize}
+\item S1: renewable energy production on range [0, 1].
+\item S2: electricity prices on range [200, 0]. % init 40
+\item S3: renewable energy investment level on range [0, 1].
+\item S4: domestic level emissions on range [0, $\sim$20m].
+\item S5: imported emissions on range [0, $\sim$9m]. % init max 60k
+\item PC1: economy [0, 1]. % init 0.57 PC1 = 0.75 * S2 + 0.25 * S3
+\item PC2: environment [0, 1]. % init 0.392/0.393 PC2 = 0.25 * S1 + 0.25 * S3 + 0.25 * S4 + 0.25 * S5
+\end{itemize}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|} 
+\hline
+		& PC1		& PC2	&  S1	& S2			& S3		& S4			& S5			\\ 
+		& Econ.		& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.	\\ \hline
+\multirow{2}{*}{Policy makers}
+		& 			&		& 0.60	& 50 CHF/MWh	& 0.70	& 4 m [?]		& 60k [?]		\\ \cline{2-8}
+		& 0.70		& 0.53	& 0.60	& 0.75		& 0.70	& 0.80		& 0.33		\\ \hline
+\multirow{2}{*}{Electorate}
+		&			&		&100\%	& 75 CHF/	MWh	& 100\%	& 0.00 [?]		& 5000.00	 [?]	\\ \cline{2-8}
+		& 0.73		& 0.89	&1.00	& 0.63		& 1.00	& 1.00		& 0.94	 	\\ \hline
+\end{tabular}
+\end{center}
+\caption{New table - Starting preferred states for the policy makers and preferred states for the electorate agents in 2040 on a the interval [0,1].}
+\label{tab:}
+\end{table}
+
+% aff1. economy
+% aff2. environment
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%			& Aff. 	& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.80	& 0.66	& 0.80	& 0.75 (50)	& 0.80	& 0.90 (2m)	& 0.55 (40k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			&1		& 0.82	& 0.81	& 0.95	& 0.75 (50)	& 0.90	& 0.95 (1m)	& 0.77 (20k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97 	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S1.}
+%\label{tab:preferredStates_Elec_S1}
+%\end{table}
+
+How are the initial values selected for the different electorate affiliations? When the party is neutral on a certain issue, we assume that they favour the status quo. Therefore, the preferred states for the electorates will be those of the initial states in the simulation. When the party is not neutral, a guestimation is made based on where we would expect each affiliation would want to be in the future. The policy core values are calculated based on the preferences on the secondary issues.
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%		
+%			& Aff. 	& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.79	& 0.61	& 0.70	& 0.75 (50)	& 0.75	& 0.85 (3m)	& 0.44 (50k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			&1		& 0.81	& 0.70	& 0.80	& 0.75 (50)	& 0.80	& 0.90 (2m)	& 0.61 (35k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S2.}
+%\label{tab:preferredStates_Elec_S2}
+%\end{table}
+
+%\begin{table}
+%\begin{center}
+%\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+%\hline
+%		
+%			& Aff.	& PC1 	& PC2	& S1		& S2		& S3		& S4			& S5		\\ 
+%			&		& Eco.	& Env.	& RES	& Price	& REI	& Dom. em.	& Imp. em.	\\ \hline \hline
+%
+%\multirow{2}{*}{$t_0$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_1$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.90	& 0.90	& 0.63 (75)	& 1.00	& 0.98 (0.5m)	& 0.72 (25k)	\\ \hline \hline
+%					
+%\multirow{2}{*}{$t_2$}
+%			& 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \cline{2-9}
+%			& 2		& 0.79	& 0.97	& 1.00	& 0.50 (100)	& 1.00	& 1.00 (0m)	& 0.94 (5k)	\\
+%
+%\hline
+%\end{tabular}
+%\end{center}
+%\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1] for S3.}
+%\label{tab:preferredStates_Elec_S3}
+%\end{table}
+
+Remark: One of the weakness of this approach is the need for goals for all of the beliefs. In a lot of cases, for the electricity model, agents do not necessarily have a goal when they are not interested in the topic. They are simply indifferent. This is something that should be discussed in the limitations of the model.
+
+Remark 2: There is an irony in the way the economy KPI is calculated. Because it is only base don electricity prices and the investments, if both actors want the same prices, then the affiliation for the environment will want more economy than the economy affiliation. This is a direct consequence of the system boundaries.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of the section
+
+%%%%%%%%%%%%
+\subsection{Growth demand}
+
+The electricity demand growth needs to be varied to confirm the hypothesis. The basis behind such changes are to account for increasing efficiencies in the electricity sector while at the same time sustaining the electrification of the energy sector, including heating and mobility. Four different levels of demand growths are considered: 0\%, 1\%, 2\% and 3\%. 
+
+%%%%%%%%%%%% end of the subsection
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Initialisation of the model}
+\label{sec:elec_initialisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%
+\subsection{The policy process model}
+
+The affiliations, the actor distribution and their preferred state need to be initialised for the policy process model. These elements are not part of the scenarios and are therefore constant across all simulations.
+
+\paragraph{The affiliations}
+
+There are two affiliations that need to be considered for the electricity sector in the policy process model. These follow the findings of \cite{markard2016socio}. One of the affiliation is focused on the economy (affiliation 1) while the other on the environment (affiliation 2). Their differences in beliefs outlined in \cite{markard2016socio} will be reflected in their preferred states. Note that no surveys were performed for this study as this is an initial study and it is considered that the study made in \cite{markard2016socio} is still sufficiently recent to apply to the model at hand here.
+
+
+\paragraph{The actor distribution}
+
+It is assumed in this approach that the actor distribution will not change over time. Only the beliefs of the electorate and the actors change. This is an assumption that could have an impact on the results obtained. This is translated in 3 policy makers and 4 policy entrepreneurs (Affiliation 1: 2 policy maker and 2 policy entrepreneurs; affiliation 2: 1 policy makers and 2 policy entrepreneurs).
+
+Because of computational efficiency issues, not all actors that were found to have a role to play in \cite{markard2016socio} can be considered. Similarly, not all of the Swiss parliament can be reflected within this study. All actors are therefore aggregated down to a size of roughly ten actors in total. 
+
+\paragraph{The actor preferred states} The actor preferred states are given in \autoref{tab:preferredStates}. They are identical to the preferred states of their respective electorate at that point in time. Their causal beliefs are given in \autoref{tab:causalBeliefs}. The causal beliefs are equivalent to the ones used within the model. This assumes that the agents have a perfect understanding of the inner workings of the system. It is not in the scope of the present research to understand the effect of an imperfect understanding of the system by the actors and therefore, it is not studied here. This is also means that there are no negative influences on the 
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| } 
+\hline
+		
+		& PC1 	& PC2	& S1		& S2			& S3		& S4			& S5		\\ 
+		& Eco.	& Env.	& RES	& Price		& REI	& Dom. em.	& Imp. em.	\\ \hline \hline
+Aff. 1		& 0.70	& 0.53	& 0.60	& 0.75 (50)	& 0.70	& 0.80 (4m)	& 0.33 (60k)	\\ \hline
+Aff. 2		& 0.65	& 0.78	& 0.75	& 0.75 (50) 	& 1.00	& 0.95 (1m)	& 0.55 (40k)	\\ 
+\hline
+\end{tabular}
+\end{center}
+\caption{Preferred states for the electorate agents in both affiliation on a the interval [0,1].}
+\label{tab:preferredStates}
+\end{table}
+
+%\item S1: renewable energy production
+%\item S2: electricity prices
+%\item S3: renewable energy investment level
+%\item S4: domestic level emissions
+%\item S5: imported emissions
+%\item PC1: economy [0, 1]. % init 0.57 PC1 = 0.75 * S2 + 0.25 * S3
+%\item PC2: environment [0, 1]. % init 0.392/0.393 PC2 = 0.25 * S1 + 0.25 * S3 + 0.25 * S4 + 0.25 * S5
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ |c|c|c|}
+ \hline
+ 	& PC1	& PC2		\\ \hline \hline
+-S1 	& 0.00	& 0.25		\\ \hline
+-S2 	& 0.75	& 0.00		\\ \hline
+-S3 	& 0.25	& 0.25		\\ \hline
+-S4 	& 0.00	& 0.25		\\ \hline
+-S5 	& 0.00	& 0.25		\\ 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Causal beliefs for the agents of both affiliations. These causal relations can be read as: the impact of S1 on PC2 is 0.25. They are all given on the interval [-1,1].}
+\label{tab:causalBeliefs}
+\end{table}
+
+The causal beliefs between deep core and policy core beliefs are not present in \autoref{tab:causalBeliefs} as no deep core belief is considered for this specific case.
+
+%%%%%%%%%%%% end of the subsection
+
+%%%%%%%%%%%% 
+\subsection{The policy process model}
+
+
+%%%%%%%%%%%% end of the subsection
+
+
+%%%%%%%%%%%%
+\subsection{The hybrid model}
+
+The model simulation last 27 years in total with a warmup time of three years. This considers a start of year of 2016, therefore the model runs until 2043. The interval between policy process is 3 years with the policy process model being called 9 times. The scenarios are therefore triggered at time of 9 years ($t_1 = 2025$) and 18 years ($t_2 = 2034$). The evaluation interval, that is the amount of time that is used to test the effectiveness of policies is set at 3 years, similar to the interval between which policy processes are called. (At the moment an interval of ten years is also tested to observe potential consequences of such changes).
+
+%%%%%%%%%%%% end of the subsection
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{apalike} 
+\bibliography{references}
+
+\appendix
+
+
+
+\end{document}

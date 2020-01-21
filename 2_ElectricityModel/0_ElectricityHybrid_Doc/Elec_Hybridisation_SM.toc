@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}The problem tree}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Implementation of the KPIs}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}The policy instruments}{6}{section.2}
+\contentsline {section}{\numberline {3}The steps for model integration}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Code documentation}{7}{subsection.3.1}
+\contentsline {paragraph}{run\_batch.py}{7}{section*.2}
+\contentsline {paragraph}{model\_module\_interface.py}{7}{section*.3}
+\contentsline {section}{\numberline {4}The steps for model simulation}{8}{section.4}
+\contentsline {section}{\numberline {5}Model verification}{8}{section.5}
+\contentsline {section}{\numberline {6}Model hypotheses}{9}{section.6}
+\contentsline {section}{\numberline {7}Model scenarios}{10}{section.7}
+\contentsline {subsection}{\numberline {7.1}Electorate goal changes}{10}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Growth demand}{12}{subsection.7.2}
+\contentsline {section}{\numberline {8}Initialisation of the model}{12}{section.8}
+\contentsline {subsection}{\numberline {8.1}The policy process model}{12}{subsection.8.1}
+\contentsline {paragraph}{The affiliations}{12}{section*.5}
+\contentsline {paragraph}{The actor distribution}{13}{section*.6}
+\contentsline {paragraph}{The actor preferred states}{13}{section*.7}
+\contentsline {subsection}{\numberline {8.2}The policy process model}{13}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}The hybrid model}{13}{subsection.8.3}
+\contentsline {section}{\numberline {9}Results}{14}{section.9}
