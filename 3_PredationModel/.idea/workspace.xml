@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4497e92b-121f-48ac-969e-a73364180b18" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runbatch.py" beforeDir="false" afterPath="$PROJECT_DIR$/runbatch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.log" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.out" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/0_Report_Levee_Formalisation/Report_Levee_Formalisation.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/input_goalProfiles_Ex1Be" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/input_goalProfiles_Ex1Be" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/model_PE_policyImpact.py" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/model_PE_policyImpact.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/run_leveeSD.py" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/run_leveeSD.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../4_LeveeModel/runbatch.py" beforeDir="false" afterPath="$PROJECT_DIR$/../4_LeveeModel/runbatch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +18,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../4_LeveeModel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
