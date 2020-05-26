@@ -55,11 +55,11 @@ class WolfSheepPredation(Model):
     Wolf-Sheep Predation Model
     '''
 
-    height = 20
-    width = 20
+    height = 50
+    width = 50
 
-    initial_sheep = 100
-    initial_wolves = 50
+    initial_sheep = 250
+    initial_wolves = 25
 
     sheep_reproduce = 0.04
     wolf_reproduce = 0.05
@@ -72,8 +72,8 @@ class WolfSheepPredation(Model):
 
     verbose = True  # Print-monitoring
 
-    def __init__(self, height=20, width=20,
-                 initial_sheep=100, initial_wolves=50,
+    def __init__(self, height=50, width=50,
+                 initial_sheep=250, initial_wolves=25,
                  sheep_reproduce=0.04, wolf_reproduce=0.05,
                  wolf_gain_from_food=20,
                  grass=True, grass_regrowth_time=30, sheep_gain_from_food=4):

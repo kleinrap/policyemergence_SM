@@ -886,7 +886,6 @@ class Electricity(Model):
 		self.supply_max_waste_m = []
 		self.supply_max_ror_m = []
 
-
 	def hydro_demand_supply_check(self, listing, asset):
 		'''
 		This function is used to reset the hydro supply or demand if it is already supplying or demanding
